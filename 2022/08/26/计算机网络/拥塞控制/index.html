@@ -16,21 +16,26 @@
   <meta name="author" content="Oliver">
   <meta name="keywords" content="">
   
-    <meta name="description" content="get 和 post没有本质区别，只是报文格式不同 http两种请求方式，用的都是一个传输层协议 get请求参数在url post参数在body    分类 GET POST    后退按钮&#x2F;刷新 无害 数据会被重新提交（浏览器应该告知用户数据会被重新提交）。   书签 可收藏为书签 不可收藏为书签   缓存 能被缓存 不能缓存   编码类型 application&#x2F;x-www">
+    <meta name="description" content="TCP四种拥塞控制算法*在网络中链路容量（带宽），交换节点中的缓存，处理机等都是网络资源  慢开始 拥塞避免 快重传 快恢复  假定如下条件：  数据单项传送 接收方有足够大的缓存空间，因而发送方的窗口大小由网络的拥塞程度来决定 TCP报文段个数为讨论单位，而不是字节  tcp Tahoe版本   发送方维护一个拥塞窗口cwnd，维护原则：没有拥塞，增大；拥塞，减小 判断是否拥塞一句：没有按时收到">
 <meta property="og:type" content="article">
-<meta property="og:title" content="get、post">
-<meta property="og:url" content="http://example.com/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/get,post/index.html">
+<meta property="og:title" content="TCP拥塞控制详解">
+<meta property="og:url" content="http://example.com/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/index.html">
 <meta property="og:site_name" content="O1ive2&#39;s Studi0">
-<meta property="og:description" content="get 和 post没有本质区别，只是报文格式不同 http两种请求方式，用的都是一个传输层协议 get请求参数在url post参数在body    分类 GET POST    后退按钮&#x2F;刷新 无害 数据会被重新提交（浏览器应该告知用户数据会被重新提交）。   书签 可收藏为书签 不可收藏为书签   缓存 能被缓存 不能缓存   编码类型 application&#x2F;x-www">
+<meta property="og:description" content="TCP四种拥塞控制算法*在网络中链路容量（带宽），交换节点中的缓存，处理机等都是网络资源  慢开始 拥塞避免 快重传 快恢复  假定如下条件：  数据单项传送 接收方有足够大的缓存空间，因而发送方的窗口大小由网络的拥塞程度来决定 TCP报文段个数为讨论单位，而不是字节  tcp Tahoe版本   发送方维护一个拥塞窗口cwnd，维护原则：没有拥塞，增大；拥塞，减小 判断是否拥塞一句：没有按时收到">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-25T08:12:10.000Z">
-<meta property="article:modified_time" content="2022-08-25T08:14:57.728Z">
+<meta property="og:image" content="http://example.com/image/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/1659597200572.png">
+<meta property="og:image" content="http://example.com/image/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/1659598145129.png">
+<meta property="og:image" content="http://example.com/image/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/1659598284439.png">
+<meta property="og:image" content="http://example.com/image/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/1659598418151.png">
+<meta property="article:published_time" content="2022-08-25T16:19:25.000Z">
+<meta property="article:modified_time" content="2022-08-25T16:19:50.817Z">
 <meta property="article:author" content="Oliver">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/image/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/1659597200572.png">
   
   
   
-  <title>get、post - O1ive2&#39;s Studi0</title>
+  <title>TCP拥塞控制详解 - O1ive2&#39;s Studi0</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="get、post"></span>
+            <span id="subtitle" data-typed-text="TCP拥塞控制详解"></span>
           
         </div>
 
@@ -206,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-25 16:12" pubdate>
-          2022年8月25日 下午
+        <time datetime="2022-08-26 00:19" pubdate>
+          2022年8月26日 凌晨
         </time>
       </span>
     
@@ -218,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          657 字
+          540 字
         
       </span>
     
@@ -229,7 +234,7 @@
         
         
         
-          6 分钟
+          5 分钟
         
       </span>
     
@@ -274,17 +279,17 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="浏览器"
-        id="heading-912302cb020149c37f9642fbc9e42891" role="tab" data-toggle="collapse" href="#collapse-912302cb020149c37f9642fbc9e42891"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="计算机网络"
+        id="heading-f75627e742c5ba6fab3c2f3c2abf02a0" role="tab" data-toggle="collapse" href="#collapse-f75627e742c5ba6fab3c2f3c2abf02a0"
         aria-expanded="true"
       >
-        浏览器
-        <span class="list-group-count">(6)</span>
+        计算机网络
+        <span class="list-group-count">(5)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-912302cb020149c37f9642fbc9e42891"
-           role="tabpanel" aria-labelledby="heading-912302cb020149c37f9642fbc9e42891">
+      <div class="category-collapse collapse show" id="collapse-f75627e742c5ba6fab3c2f3c2abf02a0"
+           role="tabpanel" aria-labelledby="heading-f75627e742c5ba6fab3c2f3c2abf02a0">
         
         
           
@@ -293,55 +298,46 @@
     
       
       
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/cookie.seesion.token.jwt/" title="cookie、session、token浅析"
+        <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CDN/" title="CDN浅析"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">cookie、session、token浅析</span>
+          <span class="category-post">CDN浅析</span>
         </a>
       
     
       
       
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/get,post/" title="get、post"
+        <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/http/" title="HTTP"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">HTTP</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/" title="TCP拥塞控制详解"
            class="list-group-item list-group-item-action
            active">
-          <span class="category-post">get、post</span>
+          <span class="category-post">TCP拥塞控制详解</span>
         </a>
       
     
       
       
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%A6%82%E4%BD%95%E8%A7%A3%E6%9E%90js/" title="如何解析js"
+        <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/https%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90/" title="https浅析"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">如何解析js</span>
+          <span class="category-post">https浅析</span>
         </a>
       
     
       
       
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%9D%A2%E8%AF%95/" title="浏览器浅析"
+        <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" title="三次握手和四次挥手详解"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">浏览器浅析</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E7%BA%BF%E7%A8%8B/" title="线程及其机制"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">线程及其机制</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E7%BC%93%E5%AD%98/" title="缓存"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">缓存</span>
+          <span class="category-post">三次握手和四次挥手详解</span>
         </a>
       
     
@@ -364,75 +360,47 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">get、post</h1>
+            <h1 style="display: none">TCP拥塞控制详解</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="get-和-post"><a href="#get-和-post" class="headerlink" title="get 和 post"></a>get 和 post</h1><p>没有本质区别，只是报文格式不同</p>
-<p>http两种请求方式，用的都是一个传输层协议</p>
-<p>get请求参数在url</p>
-<p>post参数在body</p>
-<table>
-<thead>
-<tr>
-<th>分类</th>
-<th>GET</th>
-<th>POST</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>后退按钮&#x2F;刷新</td>
-<td>无害</td>
-<td>数据会被重新提交（浏览器应该告知用户数据会被重新提交）。</td>
-</tr>
-<tr>
-<td>书签</td>
-<td>可收藏为书签</td>
-<td>不可收藏为书签</td>
-</tr>
-<tr>
-<td>缓存</td>
-<td>能被缓存</td>
-<td>不能缓存</td>
-</tr>
-<tr>
-<td>编码类型</td>
-<td>application&#x2F;x-www-form-urlencoded</td>
-<td>application&#x2F;x-www-form-urlencoded<br /> 或 multipart&#x2F;form-data。为二进制数据使用多重编码。</td>
-</tr>
-<tr>
-<td>历史</td>
-<td>参数保留在浏览器历史中。</td>
-<td>参数不会保存在浏览器历史中。</td>
-</tr>
-<tr>
-<td>对数据长度的限制</td>
-<td>是的。当发送数据时，GET 方法向 URL 添加数据；<br />URL 的长度是受限制的（URL 的最大长度是 2048 个字符）。</td>
-<td>无限制。</td>
-</tr>
-<tr>
-<td>对数据类型的限制</td>
-<td>只允许 ASCII 字符。</td>
-<td>没有限制。也允许二进制数据。</td>
-</tr>
-<tr>
-<td>安全性</td>
-<td>与 POST 相比，GET 的安全性较差，因为所发送的数据是 URL<br /> 的一部分。在发送密码或其他敏感信息时绝不要使用 GET ！</td>
-<td>POST 比 GET 更安全，因为参数不会被保存在浏览器历史或 web 服务器日志中。</td>
-</tr>
-<tr>
-<td>可见性</td>
-<td>数据在 URL 中对所有人都是可见的。</td>
-<td>数据不会显示在 URL 中。</td>
-</tr>
-</tbody></table>
-<h1 id="post比get更安全？"><a href="#post比get更安全？" class="headerlink" title="post比get更安全？"></a>post比get更安全？</h1><p>看起来，get参数暴露在url中，而post存在body中，且post请求没有缓存，</p>
-<p>实际在传输层中，用的都是http明文传输，只要能捉包，都能获取报文信息。</p>
-<p>为了安全，使用https</p>
-<h1 id="get长度"><a href="#get长度" class="headerlink" title="get长度"></a>get长度</h1><p>2048个字符</p>
-<p>浏览器限制长度</p>
-<p>服务端处理过长url会消耗过多资源</p>
+                <h2 id="TCP四种拥塞控制算法"><a href="#TCP四种拥塞控制算法" class="headerlink" title="TCP四种拥塞控制算法"></a>TCP四种拥塞控制算法</h2><p>*在网络中链路容量（带宽），交换节点中的缓存，处理机等都是网络资源</p>
+<ul>
+<li>慢开始</li>
+<li>拥塞避免</li>
+<li>快重传</li>
+<li>快恢复</li>
+</ul>
+<p>假定如下条件：</p>
+<ol>
+<li>数据单项传送</li>
+<li>接收方有足够大的缓存空间，因而发送方的窗口大小由网络的拥塞程度来决定</li>
+<li>TCP报文段个数为讨论单位，而不是字节</li>
+</ol>
+<p>tcp Tahoe版本</p>
+<p><img src="/image/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/1659597200572.png" srcset="/img/loading.gif" lazyload alt="1659597200572"></p>
+<ol>
+<li><p>发送方维护一个拥塞窗口cwnd，维护原则：没有拥塞，增大；拥塞，减小</p>
+<p>判断是否拥塞一句：没有按时收到应当到达的报文</p>
+</li>
+<li><p>发送方将拥塞窗口作为发送窗口，swnd &#x3D; cwnd</p>
+</li>
+<li><p>维护一个慢开始门限ssthresh，cwnd&lt;ssthresh，慢开始算法，cmnd&gt;ssthresh，拥塞避免算法</p>
+</li>
+</ol>
+<p>初始化：cwnd&#x3D;1，ssthresh&#x3D; 16，向接收端发送1个报文段，接收端收到后返回1个确认报文段</p>
+<p>发送端收到1个确认报文段后，cwnd &#x3D; 2，发送2个报文段，发送方收到后返回2个确认报文段</p>
+<p>接收方收到后，cwnd &#x3D; 4， 返回4个确认报文段</p>
+<p>。。。</p>
+<p>当cwnd指数增长直到等于ssthresh后，开始线性增长，每次增加1个报文段</p>
+<p>当发生超时重传时，网络拥塞，ssthresh &#x3D; 当前cwnd&#x2F;2， cwnd &#x3D; 1，开始慢开始增长</p>
+<p>tcp Reno版本</p>
+<p>快重传</p>
+<p><img src="/image/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/1659598145129.png" srcset="/img/loading.gif" lazyload alt="1659598145129"></p>
+<p>快恢复<img src="/image/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/1659598284439.png" srcset="/img/loading.gif" lazyload alt="1659598284439"></p>
+<p>完整版</p>
+<p><img src="/image/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/1659598418151.png" srcset="/img/loading.gif" lazyload alt="1659598418151"></p>
 
                 
               </div>
@@ -451,7 +419,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" class="category-chain-item">浏览器</a>
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-chain-item">计算机网络</a>
   
   
 
@@ -471,8 +439,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>get、post</div>
-      <div>http://example.com/2022/08/25/浏览器/get,post/</div>
+      <div>TCP拥塞控制详解</div>
+      <div>http://example.com/2022/08/26/计算机网络/拥塞控制/</div>
     </div>
     <div class="license-meta">
       
@@ -484,7 +452,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月25日</div>
+          <div>2022年8月26日</div>
         </div>
       
       
@@ -514,9 +482,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/http/" title="HTTP">
+                      <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/" title="中间人攻击">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">HTTP</span>
+                        <span class="hidden-mobile">中间人攻击</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -524,8 +492,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/cookie.seesion.token.jwt/" title="cookie、session、token浅析">
-                        <span class="hidden-mobile">cookie、session、token浅析</span>
+                      <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CDN/" title="CDN浅析">
+                        <span class="hidden-mobile">CDN浅析</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

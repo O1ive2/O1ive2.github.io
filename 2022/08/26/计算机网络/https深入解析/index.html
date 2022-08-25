@@ -16,21 +16,21 @@
   <meta name="author" content="Oliver">
   <meta name="keywords" content="">
   
-    <meta name="description" content="get 和 post没有本质区别，只是报文格式不同 http两种请求方式，用的都是一个传输层协议 get请求参数在url post参数在body    分类 GET POST    后退按钮&#x2F;刷新 无害 数据会被重新提交（浏览器应该告知用户数据会被重新提交）。   书签 可收藏为书签 不可收藏为书签   缓存 能被缓存 不能缓存   编码类型 application&#x2F;x-www">
+    <meta name="description" content="HTTPSHttps是在http基础上建立ssl加密层，并对数据传输进行加密，建立一条安全的信息传输通道，并能对网站服务器进行身份认证 http不安全性1.http明文传输，如果被窃听，窃听者能直接获取到报文信息。如何窃听http报文？  标识tcp连接中应用层协议为http协议的连接 篡改http报文的响应体，通过网关来获取数据包 抢先回包，将篡改后的数据包抢先正常站点返回的包发送给用户侧，这样">
 <meta property="og:type" content="article">
-<meta property="og:title" content="get、post">
-<meta property="og:url" content="http://example.com/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/get,post/index.html">
+<meta property="og:title" content="https浅析">
+<meta property="og:url" content="http://example.com/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/https%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90/index.html">
 <meta property="og:site_name" content="O1ive2&#39;s Studi0">
-<meta property="og:description" content="get 和 post没有本质区别，只是报文格式不同 http两种请求方式，用的都是一个传输层协议 get请求参数在url post参数在body    分类 GET POST    后退按钮&#x2F;刷新 无害 数据会被重新提交（浏览器应该告知用户数据会被重新提交）。   书签 可收藏为书签 不可收藏为书签   缓存 能被缓存 不能缓存   编码类型 application&#x2F;x-www">
+<meta property="og:description" content="HTTPSHttps是在http基础上建立ssl加密层，并对数据传输进行加密，建立一条安全的信息传输通道，并能对网站服务器进行身份认证 http不安全性1.http明文传输，如果被窃听，窃听者能直接获取到报文信息。如何窃听http报文？  标识tcp连接中应用层协议为http协议的连接 篡改http报文的响应体，通过网关来获取数据包 抢先回包，将篡改后的数据包抢先正常站点返回的包发送给用户侧，这样">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-25T08:12:10.000Z">
-<meta property="article:modified_time" content="2022-08-25T08:14:57.728Z">
+<meta property="article:published_time" content="2022-08-25T16:18:25.000Z">
+<meta property="article:modified_time" content="2022-08-25T16:21:53.553Z">
 <meta property="article:author" content="Oliver">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>get、post - O1ive2&#39;s Studi0</title>
+  <title>https浅析 - O1ive2&#39;s Studi0</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,7 +195,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="get、post"></span>
+            <span id="subtitle" data-typed-text="https浅析"></span>
           
         </div>
 
@@ -206,8 +206,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-25 16:12" pubdate>
-          2022年8月25日 下午
+        <time datetime="2022-08-26 00:18" pubdate>
+          2022年8月26日 凌晨
         </time>
       </span>
     
@@ -218,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          657 字
+          2.1k 字
         
       </span>
     
@@ -229,7 +229,7 @@
         
         
         
-          6 分钟
+          18 分钟
         
       </span>
     
@@ -274,17 +274,17 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="浏览器"
-        id="heading-912302cb020149c37f9642fbc9e42891" role="tab" data-toggle="collapse" href="#collapse-912302cb020149c37f9642fbc9e42891"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="计算机网络"
+        id="heading-f75627e742c5ba6fab3c2f3c2abf02a0" role="tab" data-toggle="collapse" href="#collapse-f75627e742c5ba6fab3c2f3c2abf02a0"
         aria-expanded="true"
       >
-        浏览器
-        <span class="list-group-count">(6)</span>
+        计算机网络
+        <span class="list-group-count">(5)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-912302cb020149c37f9642fbc9e42891"
-           role="tabpanel" aria-labelledby="heading-912302cb020149c37f9642fbc9e42891">
+      <div class="category-collapse collapse show" id="collapse-f75627e742c5ba6fab3c2f3c2abf02a0"
+           role="tabpanel" aria-labelledby="heading-f75627e742c5ba6fab3c2f3c2abf02a0">
         
         
           
@@ -293,55 +293,46 @@
     
       
       
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/cookie.seesion.token.jwt/" title="cookie、session、token浅析"
+        <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CDN/" title="CDN浅析"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">cookie、session、token浅析</span>
+          <span class="category-post">CDN浅析</span>
         </a>
       
     
       
       
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/get,post/" title="get、post"
+        <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/http/" title="HTTP"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">HTTP</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/" title="TCP拥塞控制详解"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">TCP拥塞控制详解</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/https%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90/" title="https浅析"
            class="list-group-item list-group-item-action
            active">
-          <span class="category-post">get、post</span>
+          <span class="category-post">https浅析</span>
         </a>
       
     
       
       
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%A6%82%E4%BD%95%E8%A7%A3%E6%9E%90js/" title="如何解析js"
+        <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" title="三次握手和四次挥手详解"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">如何解析js</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%9D%A2%E8%AF%95/" title="浏览器浅析"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">浏览器浅析</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E7%BA%BF%E7%A8%8B/" title="线程及其机制"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">线程及其机制</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E7%BC%93%E5%AD%98/" title="缓存"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">缓存</span>
+          <span class="category-post">三次握手和四次挥手详解</span>
         </a>
       
     
@@ -364,76 +355,65 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">get、post</h1>
+            <h1 style="display: none">https浅析</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="get-和-post"><a href="#get-和-post" class="headerlink" title="get 和 post"></a>get 和 post</h1><p>没有本质区别，只是报文格式不同</p>
-<p>http两种请求方式，用的都是一个传输层协议</p>
-<p>get请求参数在url</p>
-<p>post参数在body</p>
-<table>
-<thead>
-<tr>
-<th>分类</th>
-<th>GET</th>
-<th>POST</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>后退按钮&#x2F;刷新</td>
-<td>无害</td>
-<td>数据会被重新提交（浏览器应该告知用户数据会被重新提交）。</td>
-</tr>
-<tr>
-<td>书签</td>
-<td>可收藏为书签</td>
-<td>不可收藏为书签</td>
-</tr>
-<tr>
-<td>缓存</td>
-<td>能被缓存</td>
-<td>不能缓存</td>
-</tr>
-<tr>
-<td>编码类型</td>
-<td>application&#x2F;x-www-form-urlencoded</td>
-<td>application&#x2F;x-www-form-urlencoded<br /> 或 multipart&#x2F;form-data。为二进制数据使用多重编码。</td>
-</tr>
-<tr>
-<td>历史</td>
-<td>参数保留在浏览器历史中。</td>
-<td>参数不会保存在浏览器历史中。</td>
-</tr>
-<tr>
-<td>对数据长度的限制</td>
-<td>是的。当发送数据时，GET 方法向 URL 添加数据；<br />URL 的长度是受限制的（URL 的最大长度是 2048 个字符）。</td>
-<td>无限制。</td>
-</tr>
-<tr>
-<td>对数据类型的限制</td>
-<td>只允许 ASCII 字符。</td>
-<td>没有限制。也允许二进制数据。</td>
-</tr>
-<tr>
-<td>安全性</td>
-<td>与 POST 相比，GET 的安全性较差，因为所发送的数据是 URL<br /> 的一部分。在发送密码或其他敏感信息时绝不要使用 GET ！</td>
-<td>POST 比 GET 更安全，因为参数不会被保存在浏览器历史或 web 服务器日志中。</td>
-</tr>
-<tr>
-<td>可见性</td>
-<td>数据在 URL 中对所有人都是可见的。</td>
-<td>数据不会显示在 URL 中。</td>
-</tr>
-</tbody></table>
-<h1 id="post比get更安全？"><a href="#post比get更安全？" class="headerlink" title="post比get更安全？"></a>post比get更安全？</h1><p>看起来，get参数暴露在url中，而post存在body中，且post请求没有缓存，</p>
-<p>实际在传输层中，用的都是http明文传输，只要能捉包，都能获取报文信息。</p>
-<p>为了安全，使用https</p>
-<h1 id="get长度"><a href="#get长度" class="headerlink" title="get长度"></a>get长度</h1><p>2048个字符</p>
-<p>浏览器限制长度</p>
-<p>服务端处理过长url会消耗过多资源</p>
-
+                <h1 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h1><p>Https是在http基础上建立ssl加密层，并对数据传输进行加密，建立一条安全的信息传输通道，并能对网站服务器进行身份认证</p>
+<h2 id="http不安全性"><a href="#http不安全性" class="headerlink" title="http不安全性"></a>http不安全性</h2><h3 id="1-http明文传输，如果被窃听，窃听者能直接获取到报文信息。"><a href="#1-http明文传输，如果被窃听，窃听者能直接获取到报文信息。" class="headerlink" title="1.http明文传输，如果被窃听，窃听者能直接获取到报文信息。"></a>1.http明文传输，如果被窃听，窃听者能直接获取到报文信息。</h3><p>如何窃听http报文？</p>
+<ol>
+<li>标识tcp连接中应用层协议为http协议的连接</li>
+<li>篡改http报文的响应体，通过网关来获取数据包</li>
+<li>抢先回包，将篡改后的数据包抢先正常站点返回的包发送给用户侧，这样正常的数据包在到达后会被丢弃</li>
+</ol>
+<h3 id="2-无法验证报文完整性"><a href="#2-无法验证报文完整性" class="headerlink" title="2.无法验证报文完整性"></a>2.无法验证报文完整性</h3><h3 id="3。不验证通信方的身份"><a href="#3。不验证通信方的身份" class="headerlink" title="3。不验证通信方的身份"></a>3。不验证通信方的身份</h3><h2 id="Https如何解决上述问题"><a href="#Https如何解决上述问题" class="headerlink" title="Https如何解决上述问题"></a>Https如何解决上述问题</h2><p>http协议先和ssl&#x2F;tls协议通信，ssl&#x2F;tls再和tcp通信</p>
+<p>主要依赖TLS&#x2F;SSL的三类基本算法：</p>
+<ol>
+<li>散列函数，进行完整性检验</li>
+<li>和非对称加密，进行身份认证、密钥协商，</li>
+<li>对称加密，对称加密使用协商后的密钥对数据进行加密</li>
+</ol>
+<h3 id="非对称加密缺点"><a href="#非对称加密缺点" class="headerlink" title="非对称加密缺点"></a>非对称加密缺点</h3><ul>
+<li>公钥公开， 因此私钥加密的信息会被公钥破解，窃取到其中的内容</li>
+<li>加密解密耗时，传输效率低、</li>
+<li>公钥不包含服务器信息</li>
+</ul>
+<h3 id="HTTPS采用对称加密和非对称加密的方式"><a href="#HTTPS采用对称加密和非对称加密的方式" class="headerlink" title="HTTPS采用对称加密和非对称加密的方式"></a>HTTPS采用对称加密和非对称加密的方式</h3><p>加密密文使用对称加密</p>
+<p>加密的密钥使用非对称加密，用对方的公钥加密密钥，对方用自己的私钥解密得到密钥</p>
+<p>类似DH密钥交换的形式</p>
+<h3 id="解决报文篡改问题：数字签名"><a href="#解决报文篡改问题：数字签名" class="headerlink" title="解决报文篡改问题：数字签名"></a>解决报文篡改问题：数字签名</h3><ul>
+<li>能够确定签名是由签名方发送来的</li>
+<li>能够确定数据完整性</li>
+</ul>
+<h4 id="数字签名过程"><a href="#数字签名过程" class="headerlink" title="数字签名过程"></a>数字签名过程</h4><ol>
+<li>对消息进行哈希摘要，把哈希摘要用自己的私钥进行加密</li>
+<li>接收方用公钥进行解密，能够确定消息的来源</li>
+<li>将解密后的消息与原始消息的hash进行比对，如果相同，则能确定完整性</li>
+</ol>
+<p>假设 A 给 B发送消息， B收到 了A 的 消息 连同数字签名，通过校验数字签名，发现是A发送的</p>
+<p>前提是B知道A的公钥， 和消息一样，公钥不能在不安全的网络中传输，如何确定公钥是A的呢？</p>
+<h3 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h3><p>数字证书认证机构处于客户端与服务器双方都可信赖的第三方机构的立场上。</p>
+<ul>
+<li>服务器的运营人员向第三方机构CA提交公钥、组织信息、个人信息(域名)等信息并申请认证;</li>
+<li>CA通过线上、线下等多种手段验证申请者提供信息的真实性，如组织是否存在、企业是否合法，是否拥有域名的所有权等;</li>
+<li>如信息审核通过，CA会向申请者签发认证文件-证书。证书包含以下信息：申请者公钥、申请者的组织信息和个人信息、签发机构 CA的信息、有效时间、证书序列号等信息的明文，同时包含一个签名。 其中签名的产生算法：首先，使用散列函数计算公开的明文信息的信息摘要，然后，采用 CA的私钥对信息摘要进行加密，密文即签名;</li>
+<li>客户端 Client 向服务器 Server 发出请求时，Server 返回证书文件;</li>
+<li>客户端 Client 读取证书中的相关的明文信息，采用相同的散列函数计算得到信息摘要，然后，利用对应 CA的公钥解密签名数据，对比证书的信息摘要，如果一致，则可以确认证书的合法性，即服务器的公开密钥是值得信赖的。</li>
+<li>客户端还会验证证书相关的域名信息、有效时间等信息; 客户端会内置信任CA的证书信息(包含公钥)，如果CA不被信任，则找不到对应 CA的证书，证书也会被判定非法。</li>
+</ul>
+<h2 id="Https流程"><a href="#Https流程" class="headerlink" title="Https流程"></a>Https流程</h2><p>1.Client发起一个HTTPS（比如 <code>https://juejin.cn/user/4283353031252967</code>）的请求，根据RFC2818的规定，Client知道需要连接Server的443（默认）端口。</p>
+<p>2.Server把事先配置好的公钥证书（public key certificate）返回给客户端。</p>
+<p>3.Client验证公钥证书：比如是否在有效期内，证书的用途是不是匹配Client请求的站点，是不是在CRL吊销列表里面，它的上一级证书是否有效，这是一个递归的过程，直到验证到根证书（操作系统内置的Root证书或者Client内置的Root证书）。如果验证通过则继续，不通过则显示警告信息。</p>
+<p>4.Client使用伪随机数生成器生成加密所使用的对称密钥，然后用证书的公钥加密这个对称密钥，发给Server。</p>
+<p>5.Server使用自己的私钥（private key）解密这个消息，得到对称密钥。至此，Client和Server双方都持有了相同的对称密钥。</p>
+<p>6.Server使用对称密钥加密“明文内容A”，发送给Client。</p>
+<p>7.Client使用对称密钥解密响应的密文，得到“明文内容A”。</p>
+<p>8.Client再次发起HTTPS的请求，使用对称密钥加密请求的“明文内容B”，然后Server使用对称密钥解密密文，得到“明文内容B”。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>HTTPS普遍认为性能消耗要大于HTTP，因为 <strong>与纯文本通信相比，加密通信会消耗更多的CPU及内存资源</strong> 。如果每次通信都加密，会消耗相当多的资源，平摊到一台计算机上时，能够处理的请求数量必定也会随之减少。</p>
+<p>但事实并非如此，用户可以通过性能优化、把证书部署在SLB或CDN，来解决此问题。举个实际的例子，“双十一”期间，全站HTTPS的淘宝、天猫依然保证了网站和移动端的访问、浏览、交易等操作的顺畅、平滑。通过测试发现，经过优化后的许多页面性能与HTTP持平甚至还有小幅提升，因此HTTPS经过优化之后其实并不慢。</p>
+<p>除此之外， <strong>想要节约购买证书的开销也是原因之一</strong> 。要进行HTTPS通信，证书是必不可少的。而使用的证书必须向认证机构（CA）购买。</p>
+<h2 id="中间人攻击"><a href="#中间人攻击" class="headerlink" title="中间人攻击"></a>中间人攻击</h2>
                 
               </div>
             
@@ -451,7 +431,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" class="category-chain-item">浏览器</a>
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-chain-item">计算机网络</a>
   
   
 
@@ -471,8 +451,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>get、post</div>
-      <div>http://example.com/2022/08/25/浏览器/get,post/</div>
+      <div>https浅析</div>
+      <div>http://example.com/2022/08/26/计算机网络/https深入解析/</div>
     </div>
     <div class="license-meta">
       
@@ -484,7 +464,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月25日</div>
+          <div>2022年8月26日</div>
         </div>
       
       
@@ -514,9 +494,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/http/" title="HTTP">
+                      <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CDN/" title="CDN浅析">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">HTTP</span>
+                        <span class="hidden-mobile">CDN浅析</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -524,8 +504,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/cookie.seesion.token.jwt/" title="cookie、session、token浅析">
-                        <span class="hidden-mobile">cookie、session、token浅析</span>
+                      <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" title="三次握手和四次挥手详解">
+                        <span class="hidden-mobile">三次握手和四次挥手详解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
