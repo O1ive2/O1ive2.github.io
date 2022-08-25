@@ -16,21 +16,21 @@
   <meta name="author" content="Oliver">
   <meta name="keywords" content="">
   
-    <meta name="description" content="var 在ES5中，顶层对象和全局变量是等价的，用var申明全局变量，也是顶层对象  存在变量提升  能够对变量多次申明，后面申明的变量会覆盖前面的变量  不存在块级作用域  在函数中用var申明变量， 该变量是局部的 123456var a &#x3D; 30;function foo() &amp;#123;  var a &#x3D; 11;&amp;#125;foo()console.log(a);&#x2F;&#x2F;30 如果在函数中不使">
+    <meta name="description" content="prototype原型（函数特有属性）从一个函数指向一个原型对象每一个函数都有一个prototype对象属性，指向另一个对象（原型链上面的）。prototype(对象属性)的所有属性和方法，都会被构造函数的实例继承，这意味着，我们可以把那些不变(公用)的属性和方法，直接定义在prototype对象属性上。 prototype可以让所有对象实例共享它所包含的属性和方法。也就是说，不必在构造函数中定义">
 <meta property="og:type" content="article">
-<meta property="og:title" content="var、let、const区别">
-<meta property="og:url" content="http://example.com/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/index.html">
+<meta property="og:title" content="原型理解">
+<meta property="og:url" content="http://example.com/2022/08/25/javascript/%E5%8E%9F%E5%9E%8B/index.html">
 <meta property="og:site_name" content="O1ive2&#39;s Studi0">
-<meta property="og:description" content="var 在ES5中，顶层对象和全局变量是等价的，用var申明全局变量，也是顶层对象  存在变量提升  能够对变量多次申明，后面申明的变量会覆盖前面的变量  不存在块级作用域  在函数中用var申明变量， 该变量是局部的 123456var a &#x3D; 30;function foo() &amp;#123;  var a &#x3D; 11;&amp;#125;foo()console.log(a);&#x2F;&#x2F;30 如果在函数中不使">
+<meta property="og:description" content="prototype原型（函数特有属性）从一个函数指向一个原型对象每一个函数都有一个prototype对象属性，指向另一个对象（原型链上面的）。prototype(对象属性)的所有属性和方法，都会被构造函数的实例继承，这意味着，我们可以把那些不变(公用)的属性和方法，直接定义在prototype对象属性上。 prototype可以让所有对象实例共享它所包含的属性和方法。也就是说，不必在构造函数中定义">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-25T06:25:15.000Z">
-<meta property="article:modified_time" content="2022-08-25T07:44:54.022Z">
+<meta property="article:published_time" content="2022-08-25T07:35:25.000Z">
+<meta property="article:modified_time" content="2022-08-25T08:03:31.897Z">
 <meta property="article:author" content="Oliver">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>var、let、const区别 - O1ive2&#39;s Studi0</title>
+  <title>原型理解 - O1ive2&#39;s Studi0</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,7 +195,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="var、let、const区别"></span>
+            <span id="subtitle" data-typed-text="原型理解"></span>
           
         </div>
 
@@ -206,7 +206,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-25 14:25" pubdate>
+        <time datetime="2022-08-25 15:35" pubdate>
           2022年8月25日 下午
         </time>
       </span>
@@ -218,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          495 字
+          888 字
         
       </span>
     
@@ -229,7 +229,7 @@
         
         
         
-          5 分钟
+          8 分钟
         
       </span>
     
@@ -313,7 +313,7 @@
       
         <a href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/" title="var、let、const区别"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">var、let、const区别</span>
         </a>
       
@@ -331,7 +331,7 @@
       
         <a href="/2022/08/25/javascript/%E5%8E%9F%E5%9E%8B/" title="原型理解"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">原型理解</span>
         </a>
       
@@ -409,44 +409,32 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">var、let、const区别</h1>
+            <h1 style="display: none">原型理解</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><ol>
-<li><p>在ES5中，顶层对象和全局变量是等价的，用var申明全局变量，也是顶层对象</p>
+                <h1 id="prototype原型（函数特有属性）"><a href="#prototype原型（函数特有属性）" class="headerlink" title="prototype原型（函数特有属性）"></a>prototype原型（函数特有属性）</h1><p>从一个函数指向一个原型对象<br>每一个函数都有一个prototype对象属性，指向另一个对象（原型链上面的）。<br>prototype(对象属性)的所有属性和方法，都会被构造函数的实例继承，这意味着，我们可以把那些不变(公用)的属性和方法，直接定义在prototype对象属性上。</p>
+<p>prototype可以让所有对象实例共享它所包含的属性和方法。也就是说，不必在构造函数中定义对象信息，而是可以直接将这些信息添加到原型中。</p>
+<h1 id="原型链-（JS原型与原型链继承）"><a href="#原型链-（JS原型与原型链继承）" class="headerlink" title="原型链 （JS原型与原型链继承）"></a>原型链 （JS原型与原型链继承）</h1><p>__________proto___________，一个对象指向另一个对象<br>实例对象与原型之间的连接，叫做原型链。proto( 隐式连接 )</p>
+<p>作为一个对象，当你访问其中的一个属性或方法的时候，如果这个对象中没有这个 方法或属性，那么Javascript引擎将会访问这个对象的proto属性所指向上一个对 象，并在那个对象中查找指定的方法或属性，如果不能找到，那就会继续通过那个对象 的proto属性指向的对象进行向上查找，直到这个链表结束。</p>
+<h1 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h1><p><strong><code>delete</code></strong> 操作符会从某个对象上移除指定属性。成功删除的时候会返回 <code>true</code>，否则返回 <code>false</code>。</p>
+<ul>
+<li><p>如果你试图删除的属性不存在，那么 delete 将不会起任何作用，但仍会返回 true</p>
 </li>
-<li><p>存在变量提升</p>
+<li><p>如果对象的原型链上有一个与待删除属性同名的属性，那么删除属性之后，对象会使用原型链上的那个属性（也就是说，delete 操作只会在自身的属性上起作用）</p>
 </li>
-<li><p>能够对变量多次申明，后面申明的变量会覆盖前面的变量</p>
+<li><p>任何使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/var"><code>var</code></a> 声明的属性不能从全局作用域或函数的作用域中删除。</p>
+<ul>
+<li>这样的话，delete 操作不能删除任何在全局作用域中的函数（无论这个函数是来自于函数声明或函数表达式）</li>
+<li>除了在全局作用域中的函数不能被删除，在对象 (object) 中的函数是能够用 delete 操作删除的。</li>
+</ul>
 </li>
-<li><p>不存在块级作用域</p>
+<li><p>任何用<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let"><code>let</code></a>或<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const"><code>const</code></a>声明的属性不能够从它被声明的作用域中删除。</p>
 </li>
-<li><p>在函数中用var申明变量， 该变量是局部的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">30</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">var</span> a = <span class="hljs-number">11</span>;<br>&#125;<br><span class="hljs-title function_">foo</span>()<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);<span class="hljs-comment">//30</span><br></code></pre></td></tr></table></figure></li>
-<li><p>如果在函数中不使用var， 改变量为全局变量</p>
+<li><p>不可设置的 (Non-configurable) 属性不能被移除。这意味着像<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math"><code>Math</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array"><code>Array</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a>内置对象的属性以及使用<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty()</code></a>方法设置为不可设置的属性不能被删除。</p>
 </li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">30</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) &#123;<br>  a = <span class="hljs-number">11</span>;<br>&#125;<br><br><span class="hljs-title function_">foo</span>();<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);<span class="hljs-comment">//11</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>ES6新增</p>
-<ol>
-<li>所申明的变量，只在let命令所在的代码块内有效</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>    <span class="hljs-keyword">let</span> a = <span class="hljs-number">20</span><br>&#125;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a) <span class="hljs-comment">// ReferenceError: a is not defined.</span><br></code></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>不存在变量提升</li>
-<li>暂时性锁区,使用 <code>let</code>声明变量前，该变量都不可用</li>
-<li>不允许在相同作用域中重复申明</li>
-</ol>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><ol>
-<li>申明一个常量，一旦申明，值不能改变，对于复杂数据类型，保存的是其地址，其地址指向的内容可以改变</li>
-<li>必须初始化</li>
-<li>如果之前用var、let申明过变量，再用const会报错</li>
-<li>暂时性锁区</li>
-</ol>
+</ul>
 
                 
               </div>
@@ -485,8 +473,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>var、let、const区别</div>
-      <div>http://example.com/2022/08/25/javascript/var、let、const/</div>
+      <div>原型理解</div>
+      <div>http://example.com/2022/08/25/javascript/原型/</div>
     </div>
     <div class="license-meta">
       
@@ -528,15 +516,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%9D%A2%E8%AF%95/" title="浏览器浅析">
+                      <a href="/2022/08/25/javascript/worker/" title="worker">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">浏览器浅析</span>
+                        <span class="hidden-mobile">worker</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/08/25/javascript/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1/" title="宏任务微任务">
+                        <span class="hidden-mobile">宏任务微任务</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

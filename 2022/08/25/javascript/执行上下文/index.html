@@ -16,21 +16,31 @@
   <meta name="author" content="Oliver">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://example.com/categories/index.html">
+    <meta name="description" content="执行上下文 全局执行上下文创建一个全局对象window（浏览器），this指向window 函数执行上下文每执行调用一次函数，产生一个函数执行上下文 eval上下文，没有了解过  执行栈即调用栈，先进后出，用于存储代码运行时产生的执行上下文 当运行js脚本时，创建一个全局执行上下文，并压入栈中，并执行栈顶函数 每当调用一个新的函数，就将该函数的函数上下文压入栈顶，js引擎会执行栈顶函数 当函数执行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="执行上下文">
+<meta property="og:url" content="http://example.com/2022/08/25/javascript/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/index.html">
 <meta property="og:site_name" content="O1ive2&#39;s Studi0">
+<meta property="og:description" content="执行上下文 全局执行上下文创建一个全局对象window（浏览器），this指向window 函数执行上下文每执行调用一次函数，产生一个函数执行上下文 eval上下文，没有了解过  执行栈即调用栈，先进后出，用于存储代码运行时产生的执行上下文 当运行js脚本时，创建一个全局执行上下文，并压入栈中，并执行栈顶函数 每当调用一个新的函数，就将该函数的函数上下文压入栈顶，js引擎会执行栈顶函数 当函数执行">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-25T07:35:25.000Z">
+<meta property="article:modified_time" content="2022-08-25T08:03:22.934Z">
 <meta property="article:author" content="Oliver">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>分类 - O1ive2&#39;s Studi0</title>
+  <title>执行上下文 - O1ive2&#39;s Studi0</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -80,7 +90,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 60vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -185,9 +195,49 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="分类"></span>
+            <span id="subtitle" data-typed-text="执行上下文"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-25 15:35" pubdate>
+          2022年8月25日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          396 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          4 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
 
         
       </div>
@@ -203,14 +253,14 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
 
 
 
@@ -223,22 +273,17 @@
     
     
     <div class="category row nomargin-x">
-      <a class="category-item collapsed
+      <a class="category-item 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="javascript"
         id="heading-de9b9ed78d7e2e1dceeffee780e2f919" role="tab" data-toggle="collapse" href="#collapse-de9b9ed78d7e2e1dceeffee780e2f919"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         javascript
-        <span class="list-group-count"></span>
+        <span class="list-group-count">(11)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-        <a href="/categories/javascript/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>11</span>
-        </a>
-      
-      <div class="category-collapse collapse " id="collapse-de9b9ed78d7e2e1dceeffee780e2f919"
+      <div class="category-collapse collapse show" id="collapse-de9b9ed78d7e2e1dceeffee780e2f919"
            role="tabpanel" aria-labelledby="heading-de9b9ed78d7e2e1dceeffee780e2f919">
         
         
@@ -248,10 +293,28 @@
     
       
       
+        <a href="/2022/08/25/javascript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96%E5%92%8C==%E3%80%81===/" title="==、===区别"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">==、===区别</span>
+        </a>
+      
+    
+      
+      
         <a href="/2022/08/25/javascript/this/" title="this"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">this</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/" title="var、let、const区别"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">var、let、const区别</span>
         </a>
       
     
@@ -286,7 +349,7 @@
       
         <a href="/2022/08/25/javascript/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/" title="执行上下文"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">执行上下文</span>
         </a>
       
@@ -320,154 +383,10 @@
     
       
       
-        <a href="/2022/08/25/javascript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96%E5%92%8C==%E3%80%81===/" title="==、===区别"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">==、===区别</span>
-        </a>
-      
-    
-      
-      
         <a href="/2022/08/25/javascript/%E9%97%AD%E5%8C%85/" title="闭包"
            class="list-group-item list-group-item-action
            ">
           <span class="category-post">闭包</span>
-        </a>
-      
-    
-      
-      
-        <a href="/categories/javascript/" class="list-group-item list-group-item-action">
-          <span class="category-post">More...</span>
-        </a>
-        
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category row nomargin-x">
-      <a class="category-item collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="浏览器"
-        id="heading-912302cb020149c37f9642fbc9e42891" role="tab" data-toggle="collapse" href="#collapse-912302cb020149c37f9642fbc9e42891"
-        aria-expanded="false"
-      >
-        浏览器
-        <span class="list-group-count"></span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-        <a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>6</span>
-        </a>
-      
-      <div class="category-collapse collapse " id="collapse-912302cb020149c37f9642fbc9e42891"
-           role="tabpanel" aria-labelledby="heading-912302cb020149c37f9642fbc9e42891">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/get,post/" title="get、post"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">get、post</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/cookie.seesion.token.jwt/" title="cookie、session、token浅析"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">cookie、session、token浅析</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E7%BA%BF%E7%A8%8B/" title="线程及其机制"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">线程及其机制</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%A6%82%E4%BD%95%E8%A7%A3%E6%9E%90js/" title="如何解析js"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">如何解析js</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E7%BC%93%E5%AD%98/" title="缓存"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">缓存</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%9D%A2%E8%AF%95/" title="浏览器浅析"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">浏览器浅析</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category row nomargin-x">
-      <a class="category-item collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="React"
-        id="heading-50ce2da63bea6a618e7578fa50690040" role="tab" data-toggle="collapse" href="#collapse-50ce2da63bea6a618e7578fa50690040"
-        aria-expanded="false"
-      >
-        React
-        <span class="list-group-count"></span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-        <a href="/categories/React/" class="category-count col-2 col-md-1 col-xm-1">
-          <i class="iconfont icon-articles"></i>
-          <span>1</span>
-        </a>
-      
-      <div class="category-collapse collapse " id="collapse-50ce2da63bea6a618e7578fa50690040"
-           role="tabpanel" aria-labelledby="heading-50ce2da63bea6a618e7578fa50690040">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/2022/08/25/react/react%E5%8E%9F%E7%90%86/" title="React源码浅析"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">React源码浅析</span>
         </a>
       
     
@@ -480,11 +399,188 @@
 </div>
 
 
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">执行上下文</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h1><ol>
+<li>全局执行上下文<br>创建一个全局对象window（浏览器），this指向window</li>
+<li>函数执行上下文<br>每执行调用一次函数，产生一个函数执行上下文</li>
+<li>eval上下文，没有了解过</li>
+</ol>
+<h1 id="执行栈"><a href="#执行栈" class="headerlink" title="执行栈"></a>执行栈</h1><p>即调用栈，先进后出，用于存储代码运行时产生的执行上下文</p>
+<p>当运行js脚本时，创建一个全局执行上下文，并压入栈中，并执行栈顶函数</p>
+<p>每当调用一个新的函数，就将该函数的函数上下文压入栈顶，js引擎会执行栈顶函数</p>
+<p>当函数执行完成后，会从栈顶弹出，并执行下一个栈顶元素</p>
+<h1 id="this绑定"><a href="#this绑定" class="headerlink" title="this绑定"></a>this绑定</h1><ol>
+<li>在全局中，this指向全局对象</li>
+<li>在函数中，this取决于函数被调用的对象。如果它被一个引用对象调用，那么 this 会被设置成那个对象，否则 this 的值被设置为全局对象或者 undefined（在严格模式下）</li>
+</ol>
+<h1 id="词法环境和变量环境"><a href="#词法环境和变量环境" class="headerlink" title="词法环境和变量环境"></a>词法环境和变量环境</h1><p>在 ES6 中，词法环境组件和变量环境的一个不同就是前者被用来存储函数声明和变量（let 和 const）绑定，而后者只用来存储 var 变量绑定。</p>
+
+                
               </div>
-            </div>
-          </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/javascript/" class="category-chain-item">javascript</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>执行上下文</div>
+      <div>http://example.com/2022/08/25/javascript/执行上下文/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Oliver</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年8月25日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
         </div>
       </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/08/25/javascript/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1/" title="宏任务微任务">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">宏任务微任务</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08/25/javascript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="数据类型">
+                        <span class="hidden-mobile">数据类型</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
     
@@ -578,6 +674,72 @@
 
 
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
 

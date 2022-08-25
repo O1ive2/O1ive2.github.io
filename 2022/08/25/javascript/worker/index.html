@@ -16,21 +16,21 @@
   <meta name="author" content="Oliver">
   <meta name="keywords" content="">
   
-    <meta name="description" content="var 在ES5中，顶层对象和全局变量是等价的，用var申明全局变量，也是顶层对象  存在变量提升  能够对变量多次申明，后面申明的变量会覆盖前面的变量  不存在块级作用域  在函数中用var申明变量， 该变量是局部的 123456var a &#x3D; 30;function foo() &amp;#123;  var a &#x3D; 11;&amp;#125;foo()console.log(a);&#x2F;&#x2F;30 如果在函数中不使">
+    <meta name="description" content="介绍由于js是单线程，因此js运行耗时同步任务会导致页面假死，影响用户体验 worker创建一个新的线程，运行在后台的脚本，不会影响页面的性能 可以用来处理耗时的任务 worker一旦创建成功，就会始终运行，能随时响应和主线程的通讯 比较耗费资源，不应过度使用，当不使用的时候，应该主动关闭。 使用规则 必须同源：必须和主线程js脚本在同意路径下 禁止DOM操作 通讯限制：woker和主线程不是在同">
 <meta property="og:type" content="article">
-<meta property="og:title" content="var、let、const区别">
-<meta property="og:url" content="http://example.com/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/index.html">
+<meta property="og:title" content="worker">
+<meta property="og:url" content="http://example.com/2022/08/25/javascript/worker/index.html">
 <meta property="og:site_name" content="O1ive2&#39;s Studi0">
-<meta property="og:description" content="var 在ES5中，顶层对象和全局变量是等价的，用var申明全局变量，也是顶层对象  存在变量提升  能够对变量多次申明，后面申明的变量会覆盖前面的变量  不存在块级作用域  在函数中用var申明变量， 该变量是局部的 123456var a &#x3D; 30;function foo() &amp;#123;  var a &#x3D; 11;&amp;#125;foo()console.log(a);&#x2F;&#x2F;30 如果在函数中不使">
+<meta property="og:description" content="介绍由于js是单线程，因此js运行耗时同步任务会导致页面假死，影响用户体验 worker创建一个新的线程，运行在后台的脚本，不会影响页面的性能 可以用来处理耗时的任务 worker一旦创建成功，就会始终运行，能随时响应和主线程的通讯 比较耗费资源，不应过度使用，当不使用的时候，应该主动关闭。 使用规则 必须同源：必须和主线程js脚本在同意路径下 禁止DOM操作 通讯限制：woker和主线程不是在同">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-25T06:25:15.000Z">
-<meta property="article:modified_time" content="2022-08-25T07:44:54.022Z">
+<meta property="article:published_time" content="2022-08-25T07:35:25.000Z">
+<meta property="article:modified_time" content="2022-08-25T08:03:31.897Z">
 <meta property="article:author" content="Oliver">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>var、let、const区别 - O1ive2&#39;s Studi0</title>
+  <title>worker - O1ive2&#39;s Studi0</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,7 +195,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="var、let、const区别"></span>
+            <span id="subtitle" data-typed-text="worker"></span>
           
         </div>
 
@@ -206,7 +206,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-25 14:25" pubdate>
+        <time datetime="2022-08-25 15:35" pubdate>
           2022年8月25日 下午
         </time>
       </span>
@@ -218,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          495 字
+          2k 字
         
       </span>
     
@@ -229,7 +229,7 @@
         
         
         
-          5 分钟
+          17 分钟
         
       </span>
     
@@ -313,7 +313,7 @@
       
         <a href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/" title="var、let、const区别"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">var、let、const区别</span>
         </a>
       
@@ -322,7 +322,7 @@
       
         <a href="/2022/08/25/javascript/worker/" title="worker"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">worker</span>
         </a>
       
@@ -409,44 +409,37 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">var、let、const区别</h1>
+            <h1 style="display: none">worker</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><ol>
-<li><p>在ES5中，顶层对象和全局变量是等价的，用var申明全局变量，也是顶层对象</p>
-</li>
-<li><p>存在变量提升</p>
-</li>
-<li><p>能够对变量多次申明，后面申明的变量会覆盖前面的变量</p>
-</li>
-<li><p>不存在块级作用域</p>
-</li>
-<li><p>在函数中用var申明变量， 该变量是局部的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">30</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">var</span> a = <span class="hljs-number">11</span>;<br>&#125;<br><span class="hljs-title function_">foo</span>()<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);<span class="hljs-comment">//30</span><br></code></pre></td></tr></table></figure></li>
-<li><p>如果在函数中不使用var， 改变量为全局变量</p>
-</li>
+                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>由于js是单线程，因此js运行耗时同步任务会导致页面假死，影响用户体验</p>
+<p>worker创建一个新的线程，运行在后台的脚本，不会影响页面的性能</p>
+<p>可以用来处理耗时的任务</p>
+<p>worker一旦创建成功，就会始终运行，能随时响应和主线程的通讯</p>
+<p>比较耗费资源，不应过度使用，当不使用的时候，应该主动关闭。</p>
+<h2 id="使用规则"><a href="#使用规则" class="headerlink" title="使用规则"></a>使用规则</h2><ol>
+<li>必须同源：必须和主线程js脚本在同意路径下</li>
+<li>禁止DOM操作</li>
+<li>通讯限制：woker和主线程不是在同一个上下文中，因此不能直接通讯。需要通过消息通讯。</li>
+<li>禁止DOM传值：主线程与woker通讯时不能传递DOM</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">30</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) &#123;<br>  a = <span class="hljs-number">11</span>;<br>&#125;<br><br><span class="hljs-title function_">foo</span>();<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);<span class="hljs-comment">//11</span><br></code></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>主线程</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>      Worker 输出内容：<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;msg&quot;</span> /&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;sendMessage()&quot;</span>&gt;</span>发送<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;stopWorker()&quot;</span>&gt;</span>stop!<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-title class_">Worker</span> === <span class="hljs-string">&quot;undefined&quot;</span>)</span><br><span class="language-javascript">      <span class="hljs-comment">// 使用Worker前检查一下浏览器是否支持</span></span><br><span class="language-javascript">      <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">writeln</span>(<span class="hljs-string">&quot; Sorry! No Web Worker support.. &quot;</span>);</span><br><span class="language-javascript">    <span class="hljs-keyword">else</span> &#123;</span><br><span class="language-javascript">      <span class="hljs-variable language_">window</span>.<span class="hljs-property">w</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Worker</span>(<span class="hljs-string">&quot;myworker.js&quot;</span>);</span><br><span class="language-javascript">      <span class="hljs-variable language_">window</span>.<span class="hljs-property">w</span>.<span class="hljs-property">onmessage</span> = <span class="hljs-function">(<span class="hljs-params">ev</span>) =&gt;</span> &#123;</span><br><span class="language-javascript">        <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;app&quot;</span>).<span class="hljs-property">innerHTML</span> = ev.<span class="hljs-property">data</span>;</span><br><span class="language-javascript">      &#125;;</span><br><span class="language-javascript"></span><br><span class="language-javascript">      <span class="hljs-variable language_">window</span>.<span class="hljs-property">w</span>.<span class="hljs-property">onerror</span> = <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> &#123;</span><br><span class="language-javascript">        w.<span class="hljs-title function_">terminate</span>();</span><br><span class="language-javascript">        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(error.<span class="hljs-property">filename</span>, error.<span class="hljs-property">lineno</span>, error.<span class="hljs-property">message</span>); <span class="hljs-comment">// 发生错误的文件名、行号、错误内容</span></span><br><span class="language-javascript">      &#125;;</span><br><span class="language-javascript"></span><br><span class="language-javascript">      <span class="hljs-keyword">function</span> <span class="hljs-title function_">sendMessage</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-keyword">const</span> msg = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;msg&quot;</span>);</span><br><span class="language-javascript">        <span class="hljs-variable language_">window</span>.<span class="hljs-property">w</span>.<span class="hljs-title function_">postMessage</span>(msg.<span class="hljs-property">value</span>);</span><br><span class="language-javascript">      &#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript">      <span class="hljs-keyword">function</span> <span class="hljs-title function_">stopWorker</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-variable language_">window</span>.<span class="hljs-property">w</span>.<span class="hljs-title function_">terminate</span>();</span><br><span class="language-javascript">      &#125;</span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>ES6新增</p>
-<ol>
-<li>所申明的变量，只在let命令所在的代码块内有效</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>    <span class="hljs-keyword">let</span> a = <span class="hljs-number">20</span><br>&#125;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a) <span class="hljs-comment">// ReferenceError: a is not defined.</span><br></code></pre></td></tr></table></figure>
+<p>mywoker.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">simpleCount</span>(<span class="hljs-params"></span>) &#123;<br>  i++;<br>  self.<span class="hljs-title function_">postMessage</span>(i);<br>  <span class="hljs-built_in">setTimeout</span>(simpleCount, <span class="hljs-number">1000</span>);<br>&#125;<br><br><span class="hljs-title function_">simpleCount</span>();<br><br>self.<span class="hljs-property">onmessage</span> = <span class="hljs-function">(<span class="hljs-params">ev</span>) =&gt;</span> &#123;<br>  <span class="hljs-title function_">postMessage</span>(ev.<span class="hljs-property">data</span> + <span class="hljs-string">&quot; 呵呵~&quot;</span>);<br>&#125;;<br><br></code></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>不存在变量提升</li>
-<li>暂时性锁区,使用 <code>let</code>声明变量前，该变量都不可用</li>
-<li>不允许在相同作用域中重复申明</li>
-</ol>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><ol>
-<li>申明一个常量，一旦申明，值不能改变，对于复杂数据类型，保存的是其地址，其地址指向的内容可以改变</li>
-<li>必须初始化</li>
-<li>如果之前用var、let申明过变量，再用const会报错</li>
-<li>暂时性锁区</li>
-</ol>
+<h2 id="常见API"><a href="#常见API" class="headerlink" title="常见API"></a>常见API</h2><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> worker = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Worker</span>(<span class="hljs-string">&#x27;js/myworker.js&#x27;</span>, &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;myworker&#x27;</span>&#125;)<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><h4 id="onerror"><a href="#onerror" class="headerlink" title="onerror"></a>onerror</h4><p>这是一个在error事件发生时调用的函数，并且通过该函数冒泡worker。示例：worker.onerror&#x3D;function(){….};</p>
+<h4 id="onmessage"><a href="#onmessage" class="headerlink" title="onmessage"></a>onmessage</h4><p>  这是一个worker中message事件要发生的时候调用的事件。  示例：worker.onmessage&#x3D;function(){….};</p>
+<p>  这个事件一般与postMessage事件同时使用，一个用来发送数据，一个用来接受数据。例如：</p>
+<h4 id="onmessageerror"><a href="#onmessageerror" class="headerlink" title="onmessageerror"></a>onmessageerror</h4><p>在消息传递过程出现错误的属性事件。示例：worker.onmessageerror&#x3D;function(){….};</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h4 id="postMessage："><a href="#postMessage：" class="headerlink" title="postMessage："></a>postMessage：</h4><p>向线程worker的内部范围发送消息，可以设置参数，发送给worker线程的数据。在onmessage中接受。</p>
+<h4 id="terminate："><a href="#terminate：" class="headerlink" title="terminate："></a>terminate：</h4><p>过多的开启worker线程非常浪费资源所以在使用过后可以终止它，终止方法使用terminate（）。示例：worker.terminate（）；</p>
+<h4 id="close："><a href="#close：" class="headerlink" title="close："></a>close：</h4><p>除了上面的关闭，如果是在worker线程自身也可以使用self.close（）关闭。</p>
 
                 
               </div>
@@ -485,8 +478,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>var、let、const区别</div>
-      <div>http://example.com/2022/08/25/javascript/var、let、const/</div>
+      <div>worker</div>
+      <div>http://example.com/2022/08/25/javascript/worker/</div>
     </div>
     <div class="license-meta">
       
@@ -528,15 +521,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%9D%A2%E8%AF%95/" title="浏览器浅析">
+                      <a href="/2022/08/25/javascript/this/" title="this">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">浏览器浅析</span>
+                        <span class="hidden-mobile">this</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/08/25/javascript/%E5%8E%9F%E5%9E%8B/" title="原型理解">
+                        <span class="hidden-mobile">原型理解</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

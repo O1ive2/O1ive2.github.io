@@ -18,7 +18,7 @@
   
     <meta property="og:type" content="website">
 <meta property="og:title" content="O1ive2&#39;s Studi0">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="O1ive2&#39;s Studi0">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Oliver">
@@ -223,15 +223,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/get,post/" target="_self">
-          get、post
+        <a href="/2022/08/25/javascript/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/" target="_self">
+          深拷贝和浅拷贝
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/get,post/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/javascript/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/" target="_self">
         <div>
-          get 和 post没有本质区别，只是报文格式不同 http两种请求方式，用的都是一个传输层协议 get请求参数在url post参数在body    分类 GET POST    后退按钮&#x2F;刷新 无害 数据会被重新提交（浏览器应该告知用户数据会被重新提交）。   书签 可收藏为书签 不可收藏为书签   缓存 能被缓存 不能缓存   编码类型 application&#x2F;x-www
+          浅拷贝浅拷贝是按位拷贝对象，它会创建一个新对象，对原有对象的成员进行依次拷贝。 如果属性是基本类型，拷贝的就是基本类型的值 如果属性是引用类型，拷贝的就是内存地 因此如果新对象中的某个对象成员改变了值，就会影响到原有的对象 浅拷贝方法 Object.assign() Array.prototype.concat()和Array.prototype.slice() 三元运算符  深拷贝深拷贝会另外创
         </div>
       </a>
 
@@ -239,7 +239,169 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-25 16:12" pubdate>
+            <time datetime="2022-08-25 15:35" pubdate>
+              2022-08-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/javascript/" class="category-chain-item">javascript</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/08/25/javascript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96%E5%92%8C==%E3%80%81===/" target="_self">
+          ==、===区别
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/javascript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96%E5%92%8C==%E3%80%81===/" target="_self">
+        <div>
+          类型转换机制JS中有六种简单数据类型：undefined、null、boolean、string、number、symbol，以及引用类型：object 但是我们在声明的时候只有一种数据类型，只有到运行期间才会确定当前类型 虽然变量的数据类型是不确定的，但是各种运算符对数据类型是有要求的，如果运算子的类型与预期不符合，就会触发类型转换机制 常见的类型转换：  强制转换（显示转换） 自动转换（隐式转
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-25 15:35" pubdate>
+              2022-08-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/javascript/" class="category-chain-item">javascript</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/08/25/javascript/%E9%97%AD%E5%8C%85/" target="_self">
+          闭包
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/javascript/%E9%97%AD%E5%8C%85/" target="_self">
+        <div>
+          闭包作用域链在js运行的时候，需要一块空间存储定义的变量，这块空间被称作作用域对象（scope object）。 当在一个函数被执行的时候，函数内部定义的变量被存储在一个作用域对象中，和js普通对象不同的是，我们无法获取作用域对象的引用地址。 在js中，作用域存储在堆中，因此函数返回后他们还是能够被访问到不被销毁。 作用域对象也有父级作用域对象 。当试图访问一个对象时，首先访问当前作用域对象，如果
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-25 15:35" pubdate>
+              2022-08-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/javascript/" class="category-chain-item">javascript</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%A6%82%E4%BD%95%E8%A7%A3%E6%9E%90js/" target="_self">
+          如何解析js
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%A6%82%E4%BD%95%E8%A7%A3%E6%9E%90js/" target="_self">
+        <div>
+          浏览器如何解析js在浏览器中有一个“js解析器”的工具，专门用来解析我们的js代码。  js预解析 逐行解析js代码  预解析在当前作用域中，JavaScript代码执行之前，浏览器首先会默认的把所有带var和 function声明的变量进行提前的声明或者定义  1234var v &#x3D; 10function fn() &amp;#123;
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-25 15:35" pubdate>
               2022-08-25
             </time>
           </div>
@@ -277,15 +439,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/cookie.seesion.token.jwt/" target="_self">
-          cookie、session、token浅析
+        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E7%BC%93%E5%AD%98/" target="_self">
+          缓存
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/cookie.seesion.token.jwt/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E7%BC%93%E5%AD%98/" target="_self">
         <div>
-          session cookie的产生我们服务端与客户端进行交互时，需要登陆，需要输入账号密码，服务端才能确定每次的访问请求来自于谁，消息需要发送给谁。 理论上来说，在不同网页之间切换，都需要登陆认证，输入账号密码。 但是由于现代互联网的普及，我们访问客户端频率加大，如果每次都输入账号密码，太浪费时间，用户体验也不好。 这时候就出现了session cookie，由于进行身份认证，服务端会对cooki
+          什么是缓存？当访问一个网站www.baidu.com，会从服务器下载资源并存储到本地，下次访问该网站时，就不需要重新下载资源，只需要去缓存中读取即可 好处 缓解服务器压力 提升性能，打开本地资源速度要快 减小带宽消耗（访问本地资源也需要带宽）  web缓存种类：  浏览器缓存 CDN缓存 数据库缓存 代理服务器缓存  浏览器缓存浏览器在本地计算机中开辟一个内存空间，同时在硬盘中开辟一个数据缓冲区，
         </div>
       </a>
 
@@ -293,7 +455,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-25 16:12" pubdate>
+            <time datetime="2022-08-25 15:35" pubdate>
               2022-08-25
             </time>
           </div>
@@ -331,15 +493,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E7%BA%BF%E7%A8%8B/" target="_self">
-          线程及其机制
+        <a href="/2022/08/25/react/react%E5%8E%9F%E7%90%86/" target="_self">
+          React源码浅析
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E7%BA%BF%E7%A8%8B/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/react/react%E5%8E%9F%E7%90%86/" target="_self">
         <div>
-          单线程和多线程js借助浏览器内核实现多线程 js引擎在解析和执行js代码时候只有一个线程  js在遇到 ajax、settimeout、onclick回调的时候单线程无法实现 so！js会借助浏览器内核，借用浏览器的辅助线程去实现 常见的浏览器线程 js析执行线程（js引擎） Gui渲染线程（渲染引擎） 定时器触发线程 浏览器线程（处理bom操作） EventLoop事件轮询处理线程 Http线程
+          jsx表面是html， 实际上是通过Babel转换成js语句，通过React.createElement api建立虚拟dom 每个 JSX 元素只是调用 React.createElement(component, props, ...children) 的语法糖。 是 React.createElement(component, props, ...children)的返回值 虚拟节点三个参数
         </div>
       </a>
 
@@ -347,7 +509,61 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-25 16:11" pubdate>
+            <time datetime="2022-08-25 15:35" pubdate>
+              2022-08-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/React/" class="category-chain-item">React</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%9D%A2%E8%AF%95/" target="_self">
+          浏览器浅析
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%9D%A2%E8%AF%95/" target="_self">
+        <div>
+          浏览器内核Trident 俗称IE内核 IE浏览器Gecko 俗称Firefox内核 火狐浏览器Webkit Safari浏览器Blink Chrome浏览器 Oprea浏览器（Blink是由Webkit衍生而来） Cookie、sessionStorage、localStorage的区别共同点：都是保存在浏览器端，并且是同源的 区别：作用域不同 localStorage在所有同源窗口中都是共享的
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-25 15:35" pubdate>
               2022-08-25
             </time>
           </div>
@@ -385,15 +601,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/08/25/javascript/this/" target="_self">
-          this
+        <a href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/" target="_self">
+          var、let、const区别
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/javascript/this/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/" target="_self">
         <div>
-          this this永远指向一个对象 this的指向完全取决于函数调用的位置 this永远在函数执行的时候产生    在方法中，this 表示该方法所属的对象。 如果单独使用，this 表示全局对象。 在函数中，this 表示全局对象。 在函数中，在严格模式下，this 是未定义的(undefined)。 在事件中，this 表示接收事件的元素。 类似 call() 和 apply() 方法可以将
+          var 在ES5中，顶层对象和全局变量是等价的，用var申明全局变量，也是顶层对象  存在变量提升  能够对变量多次申明，后面申明的变量会覆盖前面的变量  不存在块级作用域  在函数中用var申明变量， 该变量是局部的 123456var a &#x3D; 30;function foo() &amp;#123;  var a &#x3D; 11;&amp;#125;foo()console.log(a);&#x2F;&#x2F;30 如果在函数中不使
         </div>
       </a>
 
@@ -401,331 +617,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-25 15:46" pubdate>
-              2022-08-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/javascript/" class="category-chain-item">javascript</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/25/javascript/worker/" target="_self">
-          worker
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/javascript/worker/" target="_self">
-        <div>
-          介绍由于js是单线程，因此js运行耗时同步任务会导致页面假死，影响用户体验 worker创建一个新的线程，运行在后台的脚本，不会影响页面的性能 可以用来处理耗时的任务 worker一旦创建成功，就会始终运行，能随时响应和主线程的通讯 比较耗费资源，不应过度使用，当不使用的时候，应该主动关闭。 使用规则 必须同源：必须和主线程js脚本在同意路径下 禁止DOM操作 通讯限制：woker和主线程不是在同
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-25 15:35" pubdate>
-              2022-08-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/javascript/" class="category-chain-item">javascript</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/25/javascript/%E5%8E%9F%E5%9E%8B/" target="_self">
-          原型理解
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/javascript/%E5%8E%9F%E5%9E%8B/" target="_self">
-        <div>
-          prototype原型（函数特有属性）从一个函数指向一个原型对象每一个函数都有一个prototype对象属性，指向另一个对象（原型链上面的）。prototype(对象属性)的所有属性和方法，都会被构造函数的实例继承，这意味着，我们可以把那些不变(公用)的属性和方法，直接定义在prototype对象属性上。 prototype可以让所有对象实例共享它所包含的属性和方法。也就是说，不必在构造函数中定义
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-25 15:35" pubdate>
-              2022-08-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/javascript/" class="category-chain-item">javascript</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/25/javascript/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1/" target="_self">
-          宏任务微任务
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/javascript/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1/" target="_self">
-        <div>
-          宏任务微任务所有任务可以分成两种，一种是同步任务（synchronous），另一种是异步任务（asynchronous）。同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不立即进入主线程、而先进入”任务队列”（task queue）的任务，只有”任务队列”通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。 宏任务和微任务：在Java
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-25 15:35" pubdate>
-              2022-08-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/javascript/" class="category-chain-item">javascript</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/25/javascript/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/" target="_self">
-          执行上下文
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/javascript/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/" target="_self">
-        <div>
-          执行上下文 全局执行上下文创建一个全局对象window（浏览器），this指向window 函数执行上下文每执行调用一次函数，产生一个函数执行上下文 eval上下文，没有了解过  执行栈即调用栈，先进后出，用于存储代码运行时产生的执行上下文 当运行js脚本时，创建一个全局执行上下文，并压入栈中，并执行栈顶函数 每当调用一个新的函数，就将该函数的函数上下文压入栈顶，js引擎会执行栈顶函数 当函数执行
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-25 15:35" pubdate>
-              2022-08-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/javascript/" class="category-chain-item">javascript</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/25/javascript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" target="_self">
-          数据类型
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/javascript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" target="_self">
-        <div>
-          简单数据类型String、Number、Boolean、null、undefined、Symbol 复杂数据类型Object、Array、function 特殊的数据类型：Date、RegExp、Math 判断数据类型的方法typeof只能判断简单数据类型和function， 其他复杂数据类型会被判定成object null -&gt;object undefined -&gt; undefine
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-25 15:35" pubdate>
-              2022-08-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/javascript/" class="category-chain-item">javascript</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/25/javascript/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" target="_self">
-          数组去重的多种方法
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/javascript/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" target="_self">
-        <div>
-          set12let arr &#x3D; [1, 1, 2, 3, 4, null, null, undefined];let _arr &#x3D; [...new Set(arr)];  indexOFincludes利用两层循环+数组的splice方法利用数组的filter()+indexOf()12345678function removeDuplicate(arr) &amp;#123;  return arr.fi
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-25 15:35" pubdate>
+            <time datetime="2022-08-25 14:25" pubdate>
               2022-08-25
             </time>
           </div>
@@ -761,7 +653,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </span>
   </nav>
 
