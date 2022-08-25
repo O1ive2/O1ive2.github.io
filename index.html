@@ -1,227 +1,275 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  <head>
+    <meta charset="utf-8" />
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+    <title>O1ive2's Studio</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hexo" />
+    <meta property="og:url" content="http://example.com/index.html" />
+    <meta property="og:site_name" content="Hexo" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="article:author" content="John Doe" />
+    <meta name="twitter:card" content="summary" />
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+    <link
+      rel="alternate"
+      href="/atom.xml"
+      title="Hexo"
+      type="application/atom+xml"
+    />
 
-  
-<meta name="generator" content="Hexo 6.2.0"></head>
+    <link rel="shortcut icon" href="/favicon.png" />
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css"
+    />
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-javascript/var、let、const" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/" class="article-date">
-  <time class="dt-published" datetime="2022-08-25T06:25:15.000Z" itemprop="datePublished">2022-08-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/">var、let、const区别</a>
-    </h1>
-  
+    <link rel="stylesheet" href="/css/style.css" />
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><ol>
-<li><p>在ES5中，顶层对象和全局变量是等价的，用var申明全局变量，也是顶层对象</p>
-</li>
-<li><p>存在变量提升</p>
-</li>
-<li><p>能够对变量多次申明，后面申明的变量会覆盖前面的变量</p>
-</li>
-<li><p>不存在块级作用域</p>
-</li>
-<li><p>在函数中用var申明变量， 该变量是局部的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">11</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);<span class="comment">//30</span></span><br></pre></td></tr></table></figure></li>
-<li><p>如果在函数中不使用var， 改变量为全局变量</p>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  a = <span class="number">11</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);<span class="comment">//11</span></span><br></pre></td></tr></table></figure>
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css" />
 
-<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>ES6新增</p>
-<ol>
-<li>所申明的变量，只在let命令所在的代码块内有效</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// ReferenceError: a is not defined.</span></span><br></pre></td></tr></table></figure>
+    <meta name="generator" content="Hexo 6.2.0" />
+  </head>
 
-<ol start="2">
-<li>不存在变量提升</li>
-<li>暂时性锁区,使用 <code>let</code>声明变量前，该变量都不可用</li>
-<li>不允许在相同作用域中重复申明</li>
-</ol>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><ol>
-<li>申明一个常量，一旦申明，值不能改变，对于复杂数据类型，保存的是其地址，其地址指向的内容可以改变</li>
-<li>必须初始化</li>
-<li>如果之前用var、let申明过变量，再用const会报错</li>
-<li>暂时性锁区</li>
-</ol>
+  <body>
+    <div id="container">
+      <div id="wrap">
+        <header id="header">
+          <div id="banner"></div>
+          <div id="header-outer" class="outer">
+            <div id="header-title" class="inner">
+              <h1 id="logo-wrap">
+                <a href="/" id="logo">O1ive2's Studio</a>
+              </h1>
+            </div>
+            <div id="header-inner" class="inner">
+              <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/" data-id="cl78oao9r0000nwvx02br605p" data-title="var、let、const区别" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
+                <a class="main-nav-link" href="/">Home</a>
 
+                <a class="main-nav-link" href="/archives">Archives</a>
+              </nav>
+              <nav id="sub-nav">
+                <a
+                  id="nav-rss-link"
+                  class="nav-icon"
+                  href="/atom.xml"
+                  title="RSS Feed"
+                ></a>
 
+                <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+              </nav>
+              <div id="search-form-wrap">
+                <form
+                  action="//google.com/search"
+                  method="get"
+                  accept-charset="UTF-8"
+                  class="search-form"
+                >
+                  <input
+                    type="search"
+                    name="q"
+                    class="search-form-input"
+                    placeholder="Search"
+                  /><button type="submit" class="search-form-submit">
+                    &#xF002;</button
+                  ><input
+                    type="hidden"
+                    name="sitesearch"
+                    value="http://example.com"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+        </header>
 
-  
+        <div class="outer">
+          <section id="main">
+            <article
+              id="post-javascript/var、let、const"
+              class="h-entry article article-type-post"
+              itemprop="blogPost"
+              itemscope
+              itemtype="https://schema.org/BlogPosting"
+            >
+              <div class="article-meta">
+                <a
+                  href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/"
+                  class="article-date"
+                >
+                  <time
+                    class="dt-published"
+                    datetime="2022-08-25T06:25:15.000Z"
+                    itemprop="datePublished"
+                    >2022-08-25</time
+                  >
+                </a>
+              </div>
+              <div class="article-inner">
+                <header class="article-header">
+                  <h1 itemprop="name">
+                    <a
+                      class="p-name article-title"
+                      href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/"
+                      >var、let、const区别</a
+                    >
+                  </h1>
+                </header>
 
+                <div class="e-content article-entry" itemprop="articleBody">
+                  <h2 id="var">
+                    <a href="#var" class="headerlink" title="var"></a>var
+                  </h2>
+                  <ol>
+                    <li>
+                      <p>
+                        在ES5中，顶层对象和全局变量是等价的，用var申明全局变量，也是顶层对象
+                      </p>
+                    </li>
+                    <li><p>存在变量提升</p></li>
+                    <li>
+                      <p>能够对变量多次申明，后面申明的变量会覆盖前面的变量</p>
+                    </li>
+                    <li><p>不存在块级作用域</p></li>
+                    <li>
+                      <p>在函数中用var申明变量， 该变量是局部的</p>
+                      <figure class="highlight js">
+                        <table>
+                          <tr>
+                            <td class="gutter">
+                              <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+                            </td>
+                            <td class="code">
+                              <pre><span class="line"><span class="keyword">var</span> a = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">11</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);<span class="comment">//30</span></span><br></pre>
+                            </td>
+                          </tr>
+                        </table>
+                      </figure>
+                    </li>
+                    <li><p>如果在函数中不使用var， 改变量为全局变量</p></li>
+                  </ol>
+                  <figure class="highlight js">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+                        </td>
+                        <td class="code">
+                          <pre><span class="line"><span class="keyword">var</span> a = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  a = <span class="number">11</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);<span class="comment">//11</span></span><br></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
 
-</section>
-        
+                  <h2 id="let">
+                    <a href="#let" class="headerlink" title="let"></a>let
+                  </h2>
+                  <p>ES6新增</p>
+                  <ol>
+                    <li>所申明的变量，只在let命令所在的代码块内有效</li>
+                  </ol>
+                  <figure class="highlight js">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+                        </td>
+                        <td class="code">
+                          <pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// ReferenceError: a is not defined.</span></span><br></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+
+                  <ol start="2">
+                    <li>不存在变量提升</li>
+                    <li>
+                      暂时性锁区,使用 <code>let</code>声明变量前，该变量都不可用
+                    </li>
+                    <li>不允许在相同作用域中重复申明</li>
+                  </ol>
+                  <h2 id="const">
+                    <a href="#const" class="headerlink" title="const"></a>const
+                  </h2>
+                  <ol>
+                    <li>
+                      申明一个常量，一旦申明，值不能改变，对于复杂数据类型，保存的是其地址，其地址指向的内容可以改变
+                    </li>
+                    <li>必须初始化</li>
+                    <li>如果之前用var、let申明过变量，再用const会报错</li>
+                    <li>暂时性锁区</li>
+                  </ol>
+                </div>
+                <footer class="article-footer">
+                  <a
+                    data-url="http://example.com/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/"
+                    data-id="cl78oao9r0000nwvx02br605p"
+                    data-title="var、let、const区别"
+                    class="article-share-link"
+                    >Share</a
+                  >
+                </footer>
+              </div>
+            </article>
+          </section>
+
           <aside id="sidebar">
-  
-    
+            <div class="widget-wrap">
+              <h3 class="widget-title">Archives</h3>
+              <div class="widget">
+                <ul class="archive-list">
+                  <li class="archive-list-item">
+                    <a class="archive-list-link" href="/archives/2022/08/"
+                      >August 2022</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/">var、let、const区别</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+            <div class="widget-wrap">
+              <h3 class="widget-title">Recent Posts</h3>
+              <div class="widget">
+                <ul>
+                  <li>
+                    <a
+                      href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/"
+                      >var、let、const区别</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <footer id="footer">
+          <div class="outer">
+            <div id="footer-info" class="inner">
+              &copy; 2022 John Doe<br />
+              Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+            </div>
+          </div>
+        </footer>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      <nav id="mobile-nav">
+        <a href="/" class="mobile-nav-link">Home</a>
+
+        <a href="/archives" class="mobile-nav-link">Archives</a>
+      </nav>
+
+      <script src="/js/jquery-3.4.1.min.js"></script>
+
+      <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+      <script src="/js/script.js"></script>
     </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
+  </body>
 </html>
