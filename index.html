@@ -1,275 +1,373 @@
+
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
+<html lang="zh-CN" data-default-color-scheme=auto>
 
-    <title>O1ive2's Studio</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Hexo" />
-    <meta property="og:url" content="http://example.com/index.html" />
-    <meta property="og:site_name" content="Hexo" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="article:author" content="John Doe" />
-    <meta name="twitter:card" content="summary" />
 
-    <link
-      rel="alternate"
-      href="/atom.xml"
-      title="Hexo"
-      type="application/atom+xml"
-    />
 
-    <link rel="shortcut icon" href="/favicon.png" />
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Oliver">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="O1iv2&#39;s Studio">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="O1iv2&#39;s Studio">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Oliver">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>O1iv2&#39;s Studio</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css"
-    />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
-    <link rel="stylesheet" href="/css/style.css" />
 
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css" />
 
-    <meta name="generator" content="Hexo 6.2.0" />
-  </head>
 
-  <body>
-    <div id="container">
-      <div id="wrap">
-        <header id="header">
-          <div id="banner"></div>
-          <div id="header-outer" class="outer">
-            <div id="header-title" class="inner">
-              <h1 id="logo-wrap">
-                <a href="/" id="logo">O1ive2's Studio</a>
-              </h1>
-            </div>
-            <div id="header-inner" class="inner">
-              <nav id="main-nav">
-                <a id="main-nav-toggle" class="nav-icon"></a>
 
-                <a class="main-nav-link" href="/">Home</a>
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-                <a class="main-nav-link" href="/archives">Archives</a>
-              </nav>
-              <nav id="sub-nav">
-                <a
-                  id="nav-rss-link"
-                  class="nav-icon"
-                  href="/atom.xml"
-                  title="RSS Feed"
-                ></a>
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
-                <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-              </nav>
-              <div id="search-form-wrap">
-                <form
-                  action="//google.com/search"
-                  method="get"
-                  accept-charset="UTF-8"
-                  class="search-form"
-                >
-                  <input
-                    type="search"
-                    name="q"
-                    class="search-form-input"
-                    placeholder="Search"
-                  /><button type="submit" class="search-form-submit">
-                    &#xF002;</button
-                  ><input
-                    type="hidden"
-                    name="sitesearch"
-                    value="http://example.com"
-                  />
-                </form>
-              </div>
-            </div>
-          </div>
-        </header>
 
-        <div class="outer">
-          <section id="main">
-            <article
-              id="post-javascript/var、let、const"
-              class="h-entry article article-type-post"
-              itemprop="blogPost"
-              itemscope
-              itemtype="https://schema.org/BlogPosting"
-            >
-              <div class="article-meta">
-                <a
-                  href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/"
-                  class="article-date"
-                >
-                  <time
-                    class="dt-published"
-                    datetime="2022-08-25T06:25:15.000Z"
-                    itemprop="datePublished"
-                    >2022-08-25</time
-                  >
-                </a>
-              </div>
-              <div class="article-inner">
-                <header class="article-header">
-                  <h1 itemprop="name">
-                    <a
-                      class="p-name article-title"
-                      href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/"
-                      >var、let、const区别</a
-                    >
-                  </h1>
-                </header>
 
-                <div class="e-content article-entry" itemprop="articleBody">
-                  <h2 id="var">
-                    <a href="#var" class="headerlink" title="var"></a>var
-                  </h2>
-                  <ol>
-                    <li>
-                      <p>
-                        在ES5中，顶层对象和全局变量是等价的，用var申明全局变量，也是顶层对象
-                      </p>
-                    </li>
-                    <li><p>存在变量提升</p></li>
-                    <li>
-                      <p>能够对变量多次申明，后面申明的变量会覆盖前面的变量</p>
-                    </li>
-                    <li><p>不存在块级作用域</p></li>
-                    <li>
-                      <p>在函数中用var申明变量， 该变量是局部的</p>
-                      <figure class="highlight js">
-                        <table>
-                          <tr>
-                            <td class="gutter">
-                              <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
-                            </td>
-                            <td class="code">
-                              <pre><span class="line"><span class="keyword">var</span> a = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">11</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);<span class="comment">//30</span></span><br></pre>
-                            </td>
-                          </tr>
-                        </table>
-                      </figure>
-                    </li>
-                    <li><p>如果在函数中不使用var， 改变量为全局变量</p></li>
-                  </ol>
-                  <figure class="highlight js">
-                    <table>
-                      <tr>
-                        <td class="gutter">
-                          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
-                        </td>
-                        <td class="code">
-                          <pre><span class="line"><span class="keyword">var</span> a = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  a = <span class="number">11</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);<span class="comment">//11</span></span><br></pre>
-                        </td>
-                      </tr>
-                    </table>
-                  </figure>
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
-                  <h2 id="let">
-                    <a href="#let" class="headerlink" title="let"></a>let
-                  </h2>
-                  <p>ES6新增</p>
-                  <ol>
-                    <li>所申明的变量，只在let命令所在的代码块内有效</li>
-                  </ol>
-                  <figure class="highlight js">
-                    <table>
-                      <tr>
-                        <td class="gutter">
-                          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
-                        </td>
-                        <td class="code">
-                          <pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// ReferenceError: a is not defined.</span></span><br></pre>
-                        </td>
-                      </tr>
-                    </table>
-                  </figure>
 
-                  <ol start="2">
-                    <li>不存在变量提升</li>
-                    <li>
-                      暂时性锁区,使用 <code>let</code>声明变量前，该变量都不可用
-                    </li>
-                    <li>不允许在相同作用域中重复申明</li>
-                  </ol>
-                  <h2 id="const">
-                    <a href="#const" class="headerlink" title="const"></a>const
-                  </h2>
-                  <ol>
-                    <li>
-                      申明一个常量，一旦申明，值不能改变，对于复杂数据类型，保存的是其地址，其地址指向的内容可以改变
-                    </li>
-                    <li>必须初始化</li>
-                    <li>如果之前用var、let申明过变量，再用const会报错</li>
-                    <li>暂时性锁区</li>
-                  </ol>
-                </div>
-                <footer class="article-footer">
-                  <a
-                    data-url="http://example.com/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/"
-                    data-id="cl78oao9r0000nwvx02br605p"
-                    data-title="var、let、const区别"
-                    class="article-share-link"
-                    >Share</a
-                  >
-                </footer>
-              </div>
-            </article>
-          </section>
+<link  rel="stylesheet" href="/css/main.css" />
 
-          <aside id="sidebar">
-            <div class="widget-wrap">
-              <h3 class="widget-title">Archives</h3>
-              <div class="widget">
-                <ul class="archive-list">
-                  <li class="archive-list-item">
-                    <a class="archive-list-link" href="/archives/2022/08/"
-                      >August 2022</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
 
-            <div class="widget-wrap">
-              <h3 class="widget-title">Recent Posts</h3>
-              <div class="widget">
-                <ul>
-                  <li>
-                    <a
-                      href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/"
-                      >var、let、const区别</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </aside>
-        </div>
-        <footer id="footer">
-          <div class="outer">
-            <div id="footer-info" class="inner">
-              &copy; 2022 John Doe<br />
-              Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-            </div>
-          </div>
-        </footer>
-      </div>
-      <nav id="mobile-nav">
-        <a href="/" class="mobile-nav-link">Home</a>
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
 
-        <a href="/archives" class="mobile-nav-link">Archives</a>
-      </nav>
 
-      <script src="/js/jquery-3.4.1.min.js"></script>
 
-      <script src="/fancybox/jquery.fancybox.min.js"></script>
 
-      <script src="/js/script.js"></script>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-  </body>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="An elegant Material-Design theme for Hexo"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/" target="_self">
+          var、let、const区别
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/" target="_self">
+        <div>
+          var 在ES5中，顶层对象和全局变量是等价的，用var申明全局变量，也是顶层对象  存在变量提升  能够对变量多次申明，后面申明的变量会覆盖前面的变量  不存在块级作用域  在函数中用var申明变量， 该变量是局部的 123456var a &#x3D; 30;function foo() &amp;#123;  var a &#x3D; 11;&amp;#125;foo()console.log(a);&#x2F;&#x2F;30 如果在函数中不使
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-25 14:25" pubdate>
+              2022-08-25
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
 </html>

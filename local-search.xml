@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>var、let、const区别</title>
+    <link href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/"/>
+    <url>/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/</url>
+    
+    <content type="html"><![CDATA[<h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><ol><li><p>在ES5中，顶层对象和全局变量是等价的，用var申明全局变量，也是顶层对象</p></li><li><p>存在变量提升</p></li><li><p>能够对变量多次申明，后面申明的变量会覆盖前面的变量</p></li><li><p>不存在块级作用域</p></li><li><p>在函数中用var申明变量， 该变量是局部的</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">30</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">var</span> a = <span class="hljs-number">11</span>;<br>&#125;<br><span class="hljs-title function_">foo</span>()<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);<span class="hljs-comment">//30</span><br></code></pre></td></tr></table></figure></li><li><p>如果在函数中不使用var， 改变量为全局变量</p></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">30</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) &#123;<br>  a = <span class="hljs-number">11</span>;<br>&#125;<br><br><span class="hljs-title function_">foo</span>();<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);<span class="hljs-comment">//11</span><br></code></pre></td></tr></table></figure><h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>ES6新增</p><ol><li>所申明的变量，只在let命令所在的代码块内有效</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>    <span class="hljs-keyword">let</span> a = <span class="hljs-number">20</span><br>&#125;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a) <span class="hljs-comment">// ReferenceError: a is not defined.</span><br></code></pre></td></tr></table></figure><ol start="2"><li>不存在变量提升</li><li>暂时性锁区,使用 <code>let</code>声明变量前，该变量都不可用</li><li>不允许在相同作用域中重复申明</li></ol><h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><ol><li>申明一个常量，一旦申明，值不能改变，对于复杂数据类型，保存的是其地址，其地址指向的内容可以改变</li><li>必须初始化</li><li>如果之前用var、let申明过变量，再用const会报错</li><li>暂时性锁区</li></ol>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
