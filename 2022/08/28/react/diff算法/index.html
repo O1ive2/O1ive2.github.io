@@ -16,21 +16,27 @@
   <meta name="author" content="Oliver">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简单数据类型String、Number、Boolean、null、undefined、Symbol 复杂数据类型Object、Array、function 特殊的数据类型：Date、RegExp、Math 判断数据类型的方法typeof只能判断简单数据类型和function， 其他复杂数据类型会被判定成object null -&gt;object undefined -&gt; undefine">
+    <meta name="description" content="传统diif算法时间复杂度最优解为O( n^3 )，如果有1000个节点，diff就将进行十亿次比较，效率低下。 优化diff算法时间复杂度为O(n) （1）两个假设 两个不同类型的元素会产生出不同的树 开发者可以通过key prop来暗示哪些子元素在不同渲染模式下保持稳定  （2）三个策略针对以上两个假设，React针对性的提出了三个策略进行优化  web ui中DOM节点跨层级的移动操作步数特">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据类型">
-<meta property="og:url" content="http://example.com/2022/08/25/javascript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:title" content="React diff算法浅析">
+<meta property="og:url" content="http://example.com/2022/08/28/react/diff%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="O1ive2&#39;s Studi0">
-<meta property="og:description" content="简单数据类型String、Number、Boolean、null、undefined、Symbol 复杂数据类型Object、Array、function 特殊的数据类型：Date、RegExp、Math 判断数据类型的方法typeof只能判断简单数据类型和function， 其他复杂数据类型会被判定成object null -&gt;object undefined -&gt; undefine">
+<meta property="og:description" content="传统diif算法时间复杂度最优解为O( n^3 )，如果有1000个节点，diff就将进行十亿次比较，效率低下。 优化diff算法时间复杂度为O(n) （1）两个假设 两个不同类型的元素会产生出不同的树 开发者可以通过key prop来暗示哪些子元素在不同渲染模式下保持稳定  （2）三个策略针对以上两个假设，React针对性的提出了三个策略进行优化  web ui中DOM节点跨层级的移动操作步数特">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-25T07:35:25.000Z">
-<meta property="article:modified_time" content="2022-08-25T07:59:52.746Z">
+<meta property="og:image" content="http://example.com/.com//diff%E7%AE%97%E6%B3%95/1661687331530.png">
+<meta property="og:image" content="http://example.com/.com//diff%E7%AE%97%E6%B3%95/1661687936940.png">
+<meta property="og:image" content="http://example.com/.com//diff%E7%AE%97%E6%B3%95/1661688908613.png">
+<meta property="og:image" content="https://file+.vscode-resource.vscode-cdn.net/f%3A/O1ive2Blog/source/_posts/react/image/diff%E7%AE%97%E6%B3%95/1661689056970.png">
+<meta property="og:image" content="http://example.com/.com//diff%E7%AE%97%E6%B3%95/1661689693362.png">
+<meta property="article:published_time" content="2022-08-28T10:59:25.000Z">
+<meta property="article:modified_time" content="2022-08-28T12:36:43.193Z">
 <meta property="article:author" content="Oliver">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/.com//diff%E7%AE%97%E6%B3%95/1661687331530.png">
   
   
   
-  <title>数据类型 - O1ive2&#39;s Studi0</title>
+  <title>React diff算法浅析 - O1ive2&#39;s Studi0</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="数据类型"></span>
+            <span id="subtitle" data-typed-text="React diff算法浅析"></span>
           
         </div>
 
@@ -206,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-25 15:35" pubdate>
-          2022年8月25日 下午
+        <time datetime="2022-08-28 18:59" pubdate>
+          2022年8月28日 晚上
         </time>
       </span>
     
@@ -218,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          510 字
+          1.6k 字
         
       </span>
     
@@ -229,7 +235,7 @@
         
         
         
-          5 分钟
+          14 分钟
         
       </span>
     
@@ -274,17 +280,17 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="javascript"
-        id="heading-de9b9ed78d7e2e1dceeffee780e2f919" role="tab" data-toggle="collapse" href="#collapse-de9b9ed78d7e2e1dceeffee780e2f919"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="React"
+        id="heading-50ce2da63bea6a618e7578fa50690040" role="tab" data-toggle="collapse" href="#collapse-50ce2da63bea6a618e7578fa50690040"
         aria-expanded="true"
       >
-        javascript
-        <span class="list-group-count">(11)</span>
+        React
+        <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-de9b9ed78d7e2e1dceeffee780e2f919"
-           role="tabpanel" aria-labelledby="heading-de9b9ed78d7e2e1dceeffee780e2f919">
+      <div class="category-collapse collapse show" id="collapse-50ce2da63bea6a618e7578fa50690040"
+           role="tabpanel" aria-labelledby="heading-50ce2da63bea6a618e7578fa50690040">
         
         
           
@@ -293,100 +299,19 @@
     
       
       
-        <a href="/2022/08/25/javascript/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96%E5%92%8C==%E3%80%81===/" title="==、===区别"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">==、===区别</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/javascript/this/" title="this"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">this</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/javascript/var%E3%80%81let%E3%80%81const/" title="var、let、const区别"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">var、let、const区别</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/javascript/worker/" title="worker"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">worker</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/javascript/%E5%8E%9F%E5%9E%8B/" title="原型理解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">原型理解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/javascript/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1/" title="宏任务微任务"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">宏任务微任务</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/javascript/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/" title="执行上下文"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">执行上下文</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/javascript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="数据类型"
+        <a href="/2022/08/28/react/diff%E7%AE%97%E6%B3%95/" title="React diff算法浅析"
            class="list-group-item list-group-item-action
            active">
-          <span class="category-post">数据类型</span>
+          <span class="category-post">React diff算法浅析</span>
         </a>
       
     
       
       
-        <a href="/2022/08/25/javascript/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" title="数组去重的多种方法"
+        <a href="/2022/08/25/react/react%E5%8E%9F%E7%90%86/" title="React源码浅析"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">数组去重的多种方法</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/javascript/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="深拷贝和浅拷贝"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">深拷贝和浅拷贝</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/08/25/javascript/%E9%97%AD%E5%8C%85/" title="闭包"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">闭包</span>
+          <span class="category-post">React源码浅析</span>
         </a>
       
     
@@ -409,27 +334,55 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">数据类型</h1>
+            <h1 style="display: none">React diff算法浅析</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="简单数据类型"><a href="#简单数据类型" class="headerlink" title="简单数据类型"></a>简单数据类型</h1><p>String、Number、Boolean、null、undefined、Symbol</p>
-<h1 id="复杂数据类型"><a href="#复杂数据类型" class="headerlink" title="复杂数据类型"></a>复杂数据类型</h1><p>Object、Array、function</p>
-<p>特殊的数据类型：Date、RegExp、Math</p>
-<h1 id="判断数据类型的方法"><a href="#判断数据类型的方法" class="headerlink" title="判断数据类型的方法"></a>判断数据类型的方法</h1><h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><p>只能判断简单数据类型和function， 其他复杂数据类型会被判定成object</p>
-<p>null -&gt;object</p>
-<p>undefined -&gt; undefined</p>
-<p>function -&gt; function</p>
-<p>简单数据类型就是简单数据类型</p>
-<p>复杂数据类型判断object</p>
-<p>NaN -&gt; Number</p>
-<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>A 是否为 B 的实例对象，检测的是原型，但是必须要用构造方法创建</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> n1 = <span class="hljs-number">1</span>;<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(n1 <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Number</span>);<span class="hljs-comment">//false</span><br><br><span class="hljs-keyword">let</span> n2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Number</span>(<span class="hljs-number">1</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(n2 <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Number</span>);<span class="hljs-comment">//true</span><br><br></code></pre></td></tr></table></figure>
-
-<h3 id="Object-prototype-toString-call-obj"><a href="#Object-prototype-toString-call-obj" class="headerlink" title="Object.prototype.toString.call( obj );"></a>Object.prototype.toString.call( obj );</h3><p>万能，都能判断</p>
-<p>返回格式       [object Boolean]</p>
-<h3 id="constructor-构造器"><a href="#constructor-构造器" class="headerlink" title="constructor 构造器"></a>constructor 构造器</h3><p>null 和 undefined没有constructor</p>
+                <h1 id="传统diif算法"><a href="#传统diif算法" class="headerlink" title="传统diif算法"></a>传统diif算法</h1><p>时间复杂度最优解为O( n^3 )，如果有1000个节点，diff就将进行十亿次比较，效率低下。</p>
+<h1 id="优化diff算法"><a href="#优化diff算法" class="headerlink" title="优化diff算法"></a>优化diff算法</h1><p>时间复杂度为O(n)</p>
+<h3 id="（1）两个假设"><a href="#（1）两个假设" class="headerlink" title="（1）两个假设"></a>（1）两个假设</h3><ol>
+<li>两个不同类型的元素会产生出不同的树</li>
+<li>开发者可以通过key prop来暗示哪些子元素在不同渲染模式下保持稳定</li>
+</ol>
+<h3 id="（2）三个策略"><a href="#（2）三个策略" class="headerlink" title="（2）三个策略"></a>（2）三个策略</h3><p>针对以上两个假设，React针对性的提出了三个策略进行优化</p>
+<ol>
+<li>web ui中DOM节点跨层级的移动操作步数特别少，可以忽略不计</li>
+<li>用友相同类型的两个组件会产生相似的树形结构，不同类型的两个组件将会产生不同树形结构</li>
+<li>对于同一层级的一组节点，可以通过唯一key进行区分</li>
+</ol>
+<h3 id="（3）diff具体优化"><a href="#（3）diff具体优化" class="headerlink" title="（3）diff具体优化"></a>（3）diff具体优化</h3><ul>
+<li>tree diff</li>
+<li>copoment diff</li>
+<li>element diff</li>
+</ul>
+<h4 id="tree-diff"><a href="#tree-diff" class="headerlink" title="tree diff"></a>tree diff</h4><p>React 只对虚拟 DOM 树进行分层比较，不考虑节点的跨层级比较。如下图：</p>
+<p><img src="/.com//diff%E7%AE%97%E6%B3%95/1661687331530.png" srcset="/img/loading.gif" lazyload alt="1661687331530"></p>
+<p>如上图，React 通过 updateDepth 对虚拟 Dom 树进行层级控制，只会对相同颜色框内的节点进行比较，根据对比结果，进行节点的新增和删除。如此只需要遍历一次虚拟 Dom 树，就可以完成整个的对比。</p>
+<p>如果发生了跨层级的移动操作，如下图：<img src="/.com//diff%E7%AE%97%E6%B3%95/1661687936940.png" srcset="/img/loading.gif" lazyload alt="1661687936940"></p>
+<p>通过分层比较可知，React 并不会复用 B 节点及其子节点，而是会直接删除 A 节点下的 B 节点，然后再在 C 节点下创建新的 B 节点及其子节点。因此，如果发生跨级操作，React 是不能复用已有节点，可能会导致 React 进行大量重新创建操作，这会影响性能。所以 React 官方推荐尽量避免跨层级的操作。</p>
+<h4 id="compenent-diff"><a href="#compenent-diff" class="headerlink" title="compenent diff"></a>compenent diff</h4><p>React 是基于组件构建的，对于组件间的比较所采用的策略如下：</p>
+<ul>
+<li>如果是同类型组件，首先使用 <code>shouldComponentUpdate()</code>方法判断是否需要进行比较，如果返回 <code>true</code>，继续按照 React diff 策略比较组件的虚拟 DOM 树，否则不需要比较</li>
+<li>如果是不同类型的组件，则将该组件判断为 dirty component，从而替换整个组件下的所有子节点<img src="/.com//diff%E7%AE%97%E6%B3%95/1661688908613.png" srcset="/img/loading.gif" lazyload alt="1661688908613">如上图，虽然组件 C 和组件 H 结构相似，但类型不同，React 不会进行比较，会直接删除组件 C，创建组件 H。</li>
+</ul>
+<h4 id="element-diff"><a href="#element-diff" class="headerlink" title="element diff"></a><strong>element diff</strong></h4><p>element diff 涉及三种操作：移动、创建、删除。对于同一层级的子节点，对于是否使用 key 分别进行讨论。</p>
+<p>对于不使用 key 的情况，如下图：</p>
+<p>React 对新老同一层级的子节点对比，发现新集合中的 B 不等于老集合中的 A，于是删除 A，创建 B，依此类推，直到删除 D，创建 C。这会使得相同的节点不能复用，出现频繁的删除和创建操作，从而影响性能。</p>
+<p><img src="https://file+.vscode-resource.vscode-cdn.net/f%3A/O1ive2Blog/source/_posts/react/image/diff%E7%AE%97%E6%B3%95/1661689056970.png" srcset="/img/loading.gif" lazyload alt="1661689056970"></p>
+<p>对于使用 key 的情况，如下图：</p>
+<p><img src="/.com//diff%E7%AE%97%E6%B3%95/1661689693362.png" srcset="/img/loading.gif" lazyload alt="1661689693362"></p>
+<p>React 首先会对新集合进行遍历，通过唯一 key 来判断老集合中是否存在相同的节点，如果没有则创建，如果有的，则判断是否需要进行移动操作。并且 React 对于移动操作也采用了比较高效的算法，使用了一种顺序优化手段，这里不做详细讨论。</p>
+<p>从上述可知，element diff 就是通过唯一 key 来进行 diff 优化，通过复用已有的节点，减少节点的删除和创建操作。</p>
+<p><strong>（4）如何进行 diff</strong></p>
+<p>上面已经说完了 React 的 diff 策略和具体优化，这里简单谈一下 React 是如何应用这些策略来进行 diff ：</p>
+<p>React 是基于组件构建的，首先可以将整个虚拟 DOM 树，抽象为 React 组件树（每一个组件又是由一颗更小的组件树构成，依次类推），将 React diff 策略应用比较这颗组件树，若其中某个组件需要进行比较，将这个组件看成一颗较小的组件树，继续用 React diff 策略比较这颗较小的组件树，依次类推，直到层次遍历完所有的需要比较的组件。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a><strong>小结</strong></h1><p>React 通过大胆的假设，制定对应的 diff 策略，将 O(n3) 复杂度的问题转换成 O(n) 复杂度的问题</p>
+<ul>
+<li>通过分层对比策略，对 tree diff 进行算法优化</li>
+<li>通过相同类生成相似树形结构，不同类生成不同树形结构以及 <code>shouldComponentUpdate</code>策略，对 component diff 进行算法优化</li>
+<li>通过设置唯一 key 策略，对 element diff 进行算法优化</li>
+</ul>
 
                 
               </div>
@@ -448,7 +401,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/javascript/" class="category-chain-item">javascript</a>
+  <a href="/categories/React/" class="category-chain-item">React</a>
   
   
 
@@ -468,8 +421,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>数据类型</div>
-      <div>http://example.com/2022/08/25/javascript/数据类型/</div>
+      <div>React diff算法浅析</div>
+      <div>http://example.com/2022/08/28/react/diff算法/</div>
     </div>
     <div class="license-meta">
       
@@ -481,7 +434,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月25日</div>
+          <div>2022年8月28日</div>
         </div>
       
       
@@ -511,18 +464,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/25/javascript/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1/" title="宏任务微任务">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">宏任务微任务</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/25/javascript/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/" title="执行上下文">
-                        <span class="hidden-mobile">执行上下文</span>
+                      <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/" title="中间人攻击">
+                        <span class="hidden-mobile">中间人攻击</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

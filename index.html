@@ -223,6 +223,60 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2022/08/28/react/diff%E7%AE%97%E6%B3%95/" target="_self">
+          React diff算法浅析
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/28/react/diff%E7%AE%97%E6%B3%95/" target="_self">
+        <div>
+          传统diif算法时间复杂度最优解为O( n^3 )，如果有1000个节点，diff就将进行十亿次比较，效率低下。 优化diff算法时间复杂度为O(n) （1）两个假设 两个不同类型的元素会产生出不同的树 开发者可以通过key prop来暗示哪些子元素在不同渲染模式下保持稳定  （2）三个策略针对以上两个假设，React针对性的提出了三个策略进行优化  web ui中DOM节点跨层级的移动操作步数特
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-28 18:59" pubdate>
+              2022-08-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/React/" class="category-chain-item">React</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/" target="_self">
           中间人攻击
         </a>
@@ -231,7 +285,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/08/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/" target="_self">
         <div>
-          
+          HTTPs原理HTTPS本质上就是要对HTTP通信内容进行加密。使用非对称加密的方式。 非对称加密公钥用于加密，私钥用于解密 中间人攻击方式 客户端寻求服务端的公钥 查询请求被中间人拦截 中间人把自身的公钥发送给客户端 中间人可以用自己的私钥解密客户端之后的一切通信信息  防范HTTPS协议设计的过程中，考虑到了这种情况，所以对于获取的公钥的过程做了一个验证，就是 证书验证机制 。 比如访问百度的
         </div>
       </a>
 
@@ -244,6 +298,27 @@
             </time>
           </div>
         
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-chain-item">计算机网络</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
         
         
       </div>
@@ -630,60 +705,6 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
             <time datetime="2022-08-25 16:12" pubdate>
-              2022-08-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/" class="category-chain-item">浏览器</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E7%BA%BF%E7%A8%8B/" target="_self">
-          线程及其机制
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/25/%E6%B5%8F%E8%A7%88%E5%99%A8/%E7%BA%BF%E7%A8%8B/" target="_self">
-        <div>
-          单线程和多线程js借助浏览器内核实现多线程 js引擎在解析和执行js代码时候只有一个线程  js在遇到 ajax、settimeout、onclick回调的时候单线程无法实现 so！js会借助浏览器内核，借用浏览器的辅助线程去实现 常见的浏览器线程 js析执行线程（js引擎） Gui渲染线程（渲染引擎） 定时器触发线程 浏览器线程（处理bom操作） EventLoop事件轮询处理线程 Http线程
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-25 16:11" pubdate>
               2022-08-25
             </time>
           </div>
